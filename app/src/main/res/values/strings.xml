@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RijksMuseumDemo</string>
+    <string name="back_button">Back button</string>
+    <string name="strRetry">Retry</string>
 </resources>
