@@ -1,11 +1,17 @@
 package com.farid.rijksmuseumdemo.di
 
 import android.content.Context
+import androidx.paging.Pager
 import androidx.room.Room
+import com.farid.rijksmuseumdemo.data.local.dao.ArtObjectDao
 import com.farid.rijksmuseumdemo.data.local.database.ArtDatabase
+import com.farid.rijksmuseumdemo.data.local.entity.home.ArtObjectEntity
+import com.farid.rijksmuseumdemo.data.remote.ArtObjectApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.farid.rijksmuseumdemo.data.remote.ArtObjectApi.Companion.API_KEY
 import com.farid.rijksmuseumdemo.data.remote.ArtObjectApi.Companion.BASE_URL
+import com.farid.rijksmuseumdemo.domain.repository.ArtRepository
+import com.farid.rijksmuseumdemo.domain.repository.ArtRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -68,5 +74,15 @@ object AppModule {
             .client(okHttpClient)
             .addConverterFactory(jsonConverter)
             .baseUrl(BASE_URL)
+    }
+
+    @Provides
+    @Singleton
+    fun bindArtRepository(
+        pager: Pager<Int, ArtObjectEntity>,
+        artObjectApi: ArtObjectApi,
+        artObjectDao: ArtObjectDao
+    ): ArtRepository {
+        return ArtRepositoryImpl(pager, artObjectApi, artObjectDao)
     }
 }
