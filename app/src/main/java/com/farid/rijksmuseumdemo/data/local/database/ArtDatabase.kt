@@ -7,10 +7,10 @@ import com.farid.rijksmuseumdemo.data.local.dao.ArtObjectDao
 import com.farid.rijksmuseumdemo.data.local.dao.RemoteKeysDao
 import com.farid.rijksmuseumdemo.data.local.entity.detail.ArtObjectDetailEntity
 import com.farid.rijksmuseumdemo.data.local.entity.home.ArtObjectEntity
-import com.farid.rijksmuseumdemo.data.local.entity.home.RemoteKeys
+import com.farid.rijksmuseumdemo.data.local.entity.home.RemoteKeysEntity
 
 @Database(
-    entities = [ArtObjectEntity::class, RemoteKeys::class, ArtObjectDetailEntity::class],
+    entities = [ArtObjectEntity::class, RemoteKeysEntity::class, ArtObjectDetailEntity::class],
     version = 1
 )
 @TypeConverters(ArtTypeConverter::class, ArtDetailTypeConverter::class)
