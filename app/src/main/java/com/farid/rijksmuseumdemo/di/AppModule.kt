@@ -1,11 +1,15 @@
 package com.farid.rijksmuseumdemo.di
 
+import android.content.Context
+import androidx.room.Room
+import com.farid.rijksmuseumdemo.data.local.database.ArtDatabase
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.farid.rijksmuseumdemo.data.remote.ArtObjectApi.Companion.API_KEY
 import com.farid.rijksmuseumdemo.data.remote.ArtObjectApi.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
 import okhttp3.Interceptor
@@ -18,6 +22,17 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
+    @Singleton
+    @Provides
+    fun provideArtObjectDB(@ApplicationContext context: Context): ArtDatabase {
+        return Room.databaseBuilder(
+            context,
+            ArtDatabase::class.java,
+            ArtDatabase.DATABASE_NAME,
+        )
+            .build()
+    }
     @Singleton
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
