@@ -1,4 +1,4 @@
-package com.feature.art_details
+package com.feature.common.ui
 
 import org.junit.Test
 

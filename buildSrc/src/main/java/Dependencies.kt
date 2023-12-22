@@ -37,7 +37,7 @@ object Version {
     const val turbine = "1.0.0"
 
     const val junitExt = "1.1.5"
-    const val testRunner = "1.5.2"
+    const val testRunner = "1.5.0"
     const val testRules = "1.5.0"
     const val composeBomTest = "2023.10.00"
 }
