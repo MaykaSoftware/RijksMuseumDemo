@@ -55,6 +55,26 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":feature:art:domain"))
 
+    testImplementation(Deps.junit)
+    testImplementation (Deps.testCore)
+    testImplementation (Deps.archCoreTesting)
+    testImplementation (Deps.kotlinCoroutinesTest)
+    testImplementation (Deps.truth)
+    testImplementation (Deps.mockk)
+    testImplementation (Deps.turbine)
+
+
+    androidTestImplementation(Deps.junitExt)
+    androidTestImplementation (Deps.testRunner)
+    androidTestImplementation (Deps.testRules)
+    androidTestImplementation(Deps.composeBomTest)
+    androidTestImplementation(Deps.uiTest)
+    debugImplementation(Deps.composeToolingTest)
+    debugImplementation(Deps.composeManifestTest)
+
+    androidTestImplementation(Deps.hiltAndroidTesting)
+    kaptAndroidTest(Deps.hiltAndroidCompilerTesting)
+
     implementation(Deps.core)
     implementation(Deps.lifecycle)
     implementation(Deps.activityCompose)

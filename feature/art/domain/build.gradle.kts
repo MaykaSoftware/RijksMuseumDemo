@@ -38,12 +38,34 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation(Deps.junit)
+    testImplementation (Deps.testCore)
+    testImplementation (Deps.archCoreTesting)
+    testImplementation (Deps.kotlinCoroutinesTest)
+    testImplementation (Deps.truth)
+    testImplementation (Deps.mockk)
+    testImplementation (Deps.turbine)
+
+
+    androidTestImplementation(Deps.junitExt)
+    androidTestImplementation (Deps.testRunner)
+    androidTestImplementation (Deps.testRules)
+    androidTestImplementation(Deps.composeBomTest)
+    androidTestImplementation(Deps.uiTest)
+    debugImplementation(Deps.composeToolingTest)
+    debugImplementation(Deps.composeManifestTest)
+
+    androidTestImplementation(Deps.hiltAndroidTesting)
+    kaptAndroidTest(Deps.hiltAndroidCompilerTesting)
+
+    implementation(Deps.core)
+    implementation(Deps.lifecycle)
+    implementation(Deps.activityCompose)
+    implementation(Deps.composeBom)
+    implementation(Deps.composeUI)
+    implementation(Deps.composeGraphics)
+    implementation(Deps.composeTooling)
+    implementation(Deps.material3)
 
     //Paging
     implementation(Deps.pagingRuntime)
