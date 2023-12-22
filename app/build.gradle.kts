@@ -55,6 +55,17 @@ android {
 
 dependencies {
 
+    implementation(project(":feature:art:domain"))
+    implementation(project(":feature:art:data"))
+    implementation(project(":feature:art:ui"))
+
+    implementation(project(":feature:art_details:domain"))
+    implementation(project(":feature:art_details:data"))
+    implementation(project(":feature:art_details:ui"))
+
+    implementation(project(":core:common"))
+    implementation(project(":core:feature_api"))
+
     implementation(Deps.core)
     implementation(Deps.lifecycle)
     implementation(Deps.activityCompose)
