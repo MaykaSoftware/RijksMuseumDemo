@@ -1,8 +1,8 @@
 package com.feature.art_details.domain.use_cases
 
 
-import com.feature.art_details.domain.model.ArtObjectDetail
-import com.feature.art_details.domain.repo.ArtDetailsRepository
+import com.feature.art_details.repository.ArtDetailsRepository
+import com.feature.common.domain.model.art_detail.ArtObjectDetail
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.flow

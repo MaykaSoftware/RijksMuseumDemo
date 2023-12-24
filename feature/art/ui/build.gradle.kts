@@ -54,6 +54,7 @@ dependencies {
     implementation(project(":core:feature_api"))
     implementation(project(":core:common"))
     implementation(project(":feature:art:domain"))
+    implementation(project(":feature:common:domain"))
 
     testImplementation(Deps.junit)
     testImplementation (Deps.testCore)

@@ -2,8 +2,6 @@
 //
 //import app.cash.turbine.test
 //import com.google.common.truth.Truth.assertThat
-//import com.farid.rijksmuseumdemo.domain.repository.FakeFailureArtRepository
-//import com.farid.rijksmuseumdemo.domain.repository.FakeSuccessArtRepository
 //import com.feature.art_details.domain.model.ArtObjectDetail
 //import com.feature.art_details.domain.model.WebImageDetail
 //import com.feature.art_details.domain.use_cases.ArtDetailUseCase

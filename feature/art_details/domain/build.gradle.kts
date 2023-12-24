@@ -38,6 +38,9 @@ android {
 
 dependencies {
 
+    implementation(project(":feature:common:domain"))
+    implementation(project(":feature:art_details:data"))
+
     testImplementation(Deps.junit)
     testImplementation (Deps.testCore)
     testImplementation (Deps.archCoreTesting)

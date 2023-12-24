@@ -38,9 +38,9 @@ android {
 
 dependencies {
 
-    implementation(project(":feature:art_details:domain"))
     implementation(project(":core:cache"))
     implementation(project(":core:network"))
+    implementation(project(":feature:common:domain"))
 
     testImplementation(Deps.junit)
     testImplementation (Deps.testCore)

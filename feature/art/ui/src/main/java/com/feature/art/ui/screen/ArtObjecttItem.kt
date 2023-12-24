@@ -37,7 +37,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
-import com.feature.art.domain.model.ArtObject
+import com.feature.common.domain.model.art.ArtObject
 
 @Composable
 fun ArtObjectItem(

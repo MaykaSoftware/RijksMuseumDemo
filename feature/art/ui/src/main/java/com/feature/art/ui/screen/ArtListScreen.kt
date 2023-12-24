@@ -36,8 +36,8 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.itemContentType
 import androidx.paging.compose.itemKey
-import com.feature.art.domain.model.ArtObject
 import com.feature.art.ui.R
+import com.feature.common.domain.model.art.ArtObject
 import java.util.UUID
 
 sealed interface ListArtObjectUiState {

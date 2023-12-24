@@ -36,6 +36,8 @@
             <option value="$PROJECT_DIR$/feature/art_details/data" />
             <option value="$PROJECT_DIR$/feature/art_details/domain" />
             <option value="$PROJECT_DIR$/feature/art_details/ui" />
+            <option value="$PROJECT_DIR$/feature/common" />
+            <option value="$PROJECT_DIR$/feature/common/domain" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

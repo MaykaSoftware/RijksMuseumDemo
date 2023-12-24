@@ -5,9 +5,9 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.core.cache.dataSource.dao.ArtObjectDao
 import com.core.cache.dataSource.dao.RemoteKeysDao
-import com.core.cache.entity.art.ArtObjectEntity
-import com.core.cache.entity.art.RemoteKeysEntity
-import com.core.cache.entity.art_detail.ArtObjectDetailEntity
+import com.feature.common.domain.entity.art.ArtObjectEntity
+import com.feature.common.domain.entity.art.RemoteKeysEntity
+import com.feature.common.domain.entity.art_detail.ArtObjectDetailEntity
 
 @Database(
     entities = [ArtObjectEntity::class, RemoteKeysEntity::class, ArtObjectDetailEntity::class],

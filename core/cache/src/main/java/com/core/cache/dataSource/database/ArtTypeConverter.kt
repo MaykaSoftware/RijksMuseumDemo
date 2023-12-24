@@ -1,40 +1,37 @@
 package com.core.cache.dataSource.database
 
 import androidx.room.TypeConverter
-import com.core.cache.entity.art.HeaderImageEntity
-import com.core.cache.entity.art.LinksEntity
-import com.core.cache.entity.art.WebImageEntity
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 class ArtTypeConverter {
 
     @TypeConverter
-    fun convertHeaderImageToJsonString(headerImageEntity: HeaderImageEntity?): String =
+    fun convertHeaderImageToJsonString(headerImageEntity: com.feature.common.domain.entity.art.HeaderImageEntity?): String =
         Json.encodeToString(headerImageEntity)
 
 
     @TypeConverter
-    fun convertHeaderImageToObject(json: String): HeaderImageEntity? =
+    fun convertHeaderImageToObject(json: String): com.feature.common.domain.entity.art.HeaderImageEntity? =
         Json.decodeFromString(json)
 
 
     @TypeConverter
-    fun convertLinksToJsonString(linksEntity: LinksEntity?): String =
+    fun convertLinksToJsonString(linksEntity: com.feature.common.domain.entity.art.LinksEntity?): String =
         Json.encodeToString(linksEntity)
 
 
     @TypeConverter
-    fun convertLinksToObject(json: String): LinksEntity? = Json.decodeFromString(json)
+    fun convertLinksToObject(json: String): com.feature.common.domain.entity.art.LinksEntity? = Json.decodeFromString(json)
 
 
     @TypeConverter
-    fun convertWebImageEntityToJsonString(webImageEntity: WebImageEntity?): String =
+    fun convertWebImageEntityToJsonString(webImageEntity: com.feature.common.domain.entity.art.WebImageEntity?): String =
         Json.encodeToString(webImageEntity)
 
 
     @TypeConverter
-    fun convertWebImageEntityToObject(json: String): WebImageEntity? = Json.decodeFromString(json)
+    fun convertWebImageEntityToObject(json: String): com.feature.common.domain.entity.art.WebImageEntity? = Json.decodeFromString(json)
 
 
     @TypeConverter

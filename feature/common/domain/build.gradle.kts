@@ -2,6 +2,8 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
+    kotlin("plugin.serialization") version "1.9.21"
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -50,4 +52,13 @@ dependencies {
     implementation(Deps.composeGraphics)
     implementation(Deps.composeTooling)
     implementation(Deps.material3)
+
+    //Room
+    implementation(Deps.roomRuntime)
+    ksp(Deps.roomCompiler)
+    implementation(Deps.roomPaging)
+    //Kotlin extensions
+    implementation(Deps.roomKtx)
+
+    implementation(Deps.kotlinxSerialization)
 }
