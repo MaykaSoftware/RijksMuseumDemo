@@ -59,8 +59,6 @@ class ArtDetailUseCase @Inject constructor(
     }
 }
 
-class EmptyFieldException: Exception()
-
 sealed class Resource {
     data object Loading : Resource()
     data class Success(val artObjectDetail: ArtObjectDetail?) : Resource()
