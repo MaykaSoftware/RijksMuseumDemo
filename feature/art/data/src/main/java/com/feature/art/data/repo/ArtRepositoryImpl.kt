@@ -16,7 +16,7 @@ class ArtRepositoryImpl @Inject constructor(
     pager: Pager<Int, ArtObjectEntity>
 ) : ArtRepository {
     override val artObjectData: Flow<PagingData<ArtObject>> =
-        pager.flow.map<PagingData<ArtObjectEntity>, PagingData<ArtObject>> {
+        pager.flow.map {
             it.map { artObjectEntity ->
                 artObjectEntity.toArtObject()
             }

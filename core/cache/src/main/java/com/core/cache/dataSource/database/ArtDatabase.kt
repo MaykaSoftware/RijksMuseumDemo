@@ -3,6 +3,7 @@ package com.core.cache.dataSource.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.core.cache.dataSource.dao.ArtDetailDao
 import com.core.cache.dataSource.dao.ArtObjectDao
 import com.core.cache.dataSource.dao.RemoteKeysDao
 import com.feature.common.domain.entity.art.ArtObjectEntity
@@ -18,6 +19,7 @@ abstract class ArtDatabase : RoomDatabase() {
 
     abstract fun artObjectDao(): ArtObjectDao
     abstract fun getRemoteKeysDao(): RemoteKeysDao
+    abstract fun artDetailDao(): ArtDetailDao
 
     companion object {
         const val DATABASE_NAME = "art_object_db"

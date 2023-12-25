@@ -19,13 +19,4 @@ interface ArtObjectDao {
 
     @Query("DELETE  FROM art_object")
     fun deleteAll()
-
-    @Query("SELECT * FROM art_detail_object WHERE objectNumber = :objectNumber")
-    fun getArtObjectFlowById(objectNumber: String): Flow<com.feature.common.domain.entity.art_detail.ArtObjectDetailEntity>
-
-    @Query("SELECT * FROM art_detail_object WHERE objectNumber = :objectNumber")
-    suspend fun getArtObjectById(objectNumber: String): com.feature.common.domain.entity.art_detail.ArtObjectDetailEntity?
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertArtObject(artObjectEntity: com.feature.common.domain.entity.art_detail.ArtObjectDetailEntity)
 }
