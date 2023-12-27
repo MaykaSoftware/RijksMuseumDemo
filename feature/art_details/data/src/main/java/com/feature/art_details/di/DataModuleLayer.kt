@@ -1,7 +1,6 @@
 package com.feature.art_details.di
 
 import com.core.cache.dataSource.dao.ArtDetailDao
-import com.core.cache.dataSource.dao.ArtObjectDao
 import com.core.network.dataSource.ArtDataSource
 import com.feature.art_details.dataSource.local.ArtDetailDaoImpl
 import com.feature.art_details.repository.ArtDetailsRepository

@@ -38,47 +38,32 @@ import com.feature.common.domain.model.art_detail.ArtObjectDetail
 @Composable
 fun ArtDetailsScreen(
     state: State,
-    navController: NavController
+    navController: NavController,
+    modifier: Modifier = Modifier
 ) {
-    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
-    Scaffold(
-        modifier = Modifier
-            .fillMaxSize()
-            .nestedScroll(scrollBehavior.nestedScrollConnection),
-        topBar = {
-            ArtAppBar(
-                title = "ART SCREEN",
-                scrollBehavior,
-                canNavigateBack = true,
-                navigateUp = { navController.navigateUp() }
-            )
-        }
-    ) { innerPadding ->
-        Box(
-            modifier = Modifier.fillMaxSize().padding(innerPadding),
+    Box(
+        modifier = Modifier.fillMaxSize(),
 
-            ) {
-            when (state) {
-                is State.Error -> {
-                    ErrorMessage(state.errorMessage)
+        ) {
+        when (state) {
+            is State.Error -> {
+                ErrorMessage(state.errorMessage)
+            }
+
+            State.Loading -> {
+                Box(Modifier.align(Alignment.Center)) {
+                    CircularProgressIndicator()
                 }
+            }
 
-                State.Loading -> {
-                    Box(Modifier.align(Alignment.Center)){
-                        CircularProgressIndicator()
-                    }
-                }
-
-                is State.Success -> {
-                    if (state.artObjectDetail != null) {
-                        CardItem(artObjectDetail = state.artObjectDetail)
-                    }
+            is State.Success -> {
+                if (state.artObjectDetail != null) {
+                    CardItem(artObjectDetail = state.artObjectDetail)
                 }
             }
         }
+
     }
-
-
 
 
 }

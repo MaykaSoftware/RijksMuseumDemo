@@ -1,24 +1,42 @@
 package com.farid.rijksmuseumdemo.presentation
 
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.farid.rijksmuseumdemo.navigation.AppNavGraph
 import com.farid.rijksmuseumdemo.navigation.NavigationProvider
+import com.feature.bottombar.BottomTabs
+import com.feature.bottombar.NavigationBottomBar
+import com.feature.bottombar.currentRoute
 
-sealed class Route(
-    val route: String
-){
-    data object ArtScreen: Route(route = "Art Screen")
-    data object ArtDetailScreen: Route(route = "Art Detail")
-}
-
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RijksMuseumDemoApp(
     navigationProvider: NavigationProvider
 ) {
     val navController = rememberNavController()
-    AppNavGraph(navController = navController, navigationProvider = navigationProvider)
+    val tabs = remember { BottomTabs.entries.toTypedArray() }
+
+    val shouldShowBottomNavigation = when (currentRoute(navController)) {
+        BottomTabs.HOME.route,
+        BottomTabs.FAVORITES.route,
+        BottomTabs.SETTINGS.route,
+        -> true
+        else -> false
+    }
+
+    println("__ROUTE currentRoute : ${currentRoute(navController)}")
+    println("__ROUTE shouldShowBottomNavigation : $shouldShowBottomNavigation")
+    println("__ROUTE 2nd route : ${BottomTabs.FAVORITES.route}")
+    Scaffold(
+        bottomBar = { if (shouldShowBottomNavigation) NavigationBottomBar(navController = navController, tabs = tabs) }
+    ) { innerPaddingModifier ->
+        AppNavGraph(
+            navController = navController,
+            navigationProvider = navigationProvider,
+            modifier = Modifier.padding(innerPaddingModifier)
+        )
+    }
 }
