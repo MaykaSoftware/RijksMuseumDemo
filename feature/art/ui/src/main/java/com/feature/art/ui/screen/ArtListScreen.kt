@@ -48,25 +48,9 @@ sealed interface ListArtObjectUiState {
 
 enum class MyListContentType { Header, Cell }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ArtScreen(artObjects: LazyPagingItems<ListArtObjectUiState>, navController: NavController) {
-    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
-    Scaffold(
-        modifier = Modifier
-            .fillMaxSize()
-            .nestedScroll(scrollBehavior.nestedScrollConnection),
-        topBar = {
-            ArtAppBar(
-                title = "ART SCREEN",
-                scrollBehavior,
-                canNavigateBack = false,
-                navigateUp = {  }
-            )
-        }
-    ) { innerPadding ->
-        ArtListScreen(artObjects = artObjects,navController, innerPadding)
-    }
+fun ArtScreen(artObjects: LazyPagingItems<ListArtObjectUiState>, navController: NavController, modifier: Modifier = Modifier) {
+    ArtListScreen(artObjects = artObjects,navController, modifier)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -99,10 +83,10 @@ fun ArtAppBar(
 fun ArtListScreen(
     artObjects: LazyPagingItems<ListArtObjectUiState>,
     navController: NavController,
-    innerPadding: PaddingValues
+    modifier: Modifier
 ) {
 
-    LazyColumn(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
+    LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(
             count = artObjects.itemCount,
             key = artObjects.itemKey {

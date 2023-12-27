@@ -58,6 +58,7 @@ dependencies {
     implementation(project(":feature:art:domain"))
     implementation(project(":feature:art:data"))
     implementation(project(":feature:art:ui"))
+    implementation(project(":feature:bottombar"))
 
     implementation(project(":feature:art_details:domain"))
     implementation(project(":feature:art_details:data"))
