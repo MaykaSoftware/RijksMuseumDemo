@@ -6,9 +6,9 @@ object ArtFeature {
     const val artDetailScreenRoute = "art_details/{objectNumber}"
 }
 
-object ArtDetailFeature {
-    const val nestedDetailRoute = "art_nested_detail_route"
-    const val artDetailScreenRoute = "art_details/{objectNumber}"
+object HomeFeature {
+    const val nestedHomeRoute = "nested_home_route"
+    const val homeScreenRoute = "home_screen_route"
 }
 
 object SettingsFeature {

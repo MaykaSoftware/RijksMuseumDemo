@@ -21,13 +21,20 @@ fun RijksMuseumDemoApp(
 
     val shouldShowBottomNavigation = when (currentRoute(navController)) {
         BottomTabs.HOME.route,
+        BottomTabs.ART.route,
         BottomTabs.SETTINGS.route,
         -> true
+
         else -> false
     }
 
     Scaffold(
-        bottomBar = { if (shouldShowBottomNavigation) NavigationBottomBar(navController = navController, tabs = tabs) }
+        bottomBar = {
+            if (shouldShowBottomNavigation) NavigationBottomBar(
+                navController = navController,
+                tabs = tabs
+            )
+        }
     ) { innerPaddingModifier ->
         AppNavGraph(
             navController = navController,

@@ -7,7 +7,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.core.common.navigation_constants.ArtDetailFeature
 import com.core.common.navigation_constants.ArtFeature
 import com.core.feature_api.FeatureApi
 import com.feature.art.ui.screen.art.ArtScreen
