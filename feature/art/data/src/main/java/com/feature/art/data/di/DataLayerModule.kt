@@ -3,6 +3,7 @@ package com.feature.art.data.di
 import androidx.paging.Pager
 import com.core.cache.dataSource.dao.ArtObjectDao
 import com.core.cache.dataSource.dao.RemoteKeysDao
+import com.core.network.dataSource.ArtDataSource
 import com.feature.art.data.dataSource.local.ArtObjectDaoImpl
 import com.feature.art.data.dataSource.local.RemoteKeysDaoImpl
 import com.feature.art.data.repo.ArtRepository
@@ -29,8 +30,10 @@ object DataLayerModule {
     @Provides
     @Singleton
     fun bindArtRepository(
-        pager: Pager<Int, ArtObjectEntity>
+        pager: Pager<Int, ArtObjectEntity>,
+        artDataSource: ArtDataSource,
+        artObjectDaoImpl: ArtObjectDaoImpl
     ): ArtRepository {
-        return ArtRepositoryImpl(pager)
+        return ArtRepositoryImpl(pager, artDataSource, artObjectDaoImpl)
     }
 }

@@ -18,6 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.core.common.navigation_constants.ArtFeature
+import com.core.common.navigation_constants.SettingsFeature
 import java.util.Locale
 
 enum class BottomTabs(
@@ -26,9 +28,8 @@ enum class BottomTabs(
     val unSelectedIcon: ImageVector,
     val route: String
 ) {
-    HOME("Home", Icons.Filled.Home, Icons.Outlined.Home,"art_screen_route"),
-    FAVORITES("Favorites", Icons.Filled.Favorite, Icons.Outlined.FavoriteBorder,"art_details/NG-MC-505"),
-    SETTINGS("Settings", Icons.Filled.Settings, Icons.Outlined.Settings,"art_details/NG-MC-73")
+    HOME("Home", Icons.Filled.Home, Icons.Outlined.Home, ArtFeature.artScreenRoute),
+    SETTINGS("Settings", Icons.Filled.Settings, Icons.Outlined.Settings,SettingsFeature.settingsScreenRoute)
 }
 
 @Composable

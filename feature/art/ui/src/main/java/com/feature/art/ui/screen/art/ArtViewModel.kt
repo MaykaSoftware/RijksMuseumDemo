@@ -1,4 +1,4 @@
-package com.feature.art.ui.screen
+package com.feature.art.ui.screen.art
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

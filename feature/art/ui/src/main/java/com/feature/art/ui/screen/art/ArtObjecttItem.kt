@@ -1,4 +1,4 @@
-package com.feature.art.ui.screen
+package com.feature.art.ui.screen.art
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
