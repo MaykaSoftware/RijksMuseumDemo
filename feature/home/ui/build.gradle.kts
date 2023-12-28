@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.feature.settings.ui"
+    namespace = "com.feature.home.ui"
     compileSdk = 34
 
     defaultConfig {

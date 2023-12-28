@@ -2,9 +2,11 @@ package com.feature.bottombar
 
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Architecture
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.Architecture
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Settings
@@ -19,6 +21,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.core.common.navigation_constants.ArtFeature
+import com.core.common.navigation_constants.HomeFeature
 import com.core.common.navigation_constants.SettingsFeature
 import java.util.Locale
 
@@ -28,7 +31,8 @@ enum class BottomTabs(
     val unSelectedIcon: ImageVector,
     val route: String
 ) {
-    HOME("Home", Icons.Filled.Home, Icons.Outlined.Home, ArtFeature.artScreenRoute),
+    HOME("Home", Icons.Filled.Home, Icons.Outlined.Home, HomeFeature.homeScreenRoute),
+    ART("Art", Icons.Filled.Architecture, Icons.Outlined.Architecture, ArtFeature.artScreenRoute),
     SETTINGS("Settings", Icons.Filled.Settings, Icons.Outlined.Settings,SettingsFeature.settingsScreenRoute)
 }
 
