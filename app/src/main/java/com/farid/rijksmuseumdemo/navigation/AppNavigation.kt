@@ -4,17 +4,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.navigation
 import com.core.common.navigation_constants.ArtFeature
 
 @Composable
 fun AppNavGraph(modifier: Modifier = Modifier, navController: NavHostController, navigationProvider: NavigationProvider){
     NavHost(navController = navController, startDestination = ArtFeature.nestedRoute) {
         navigationProvider.artApi.registerGraph(
-            navController, this, modifier
-        )
-
-        navigationProvider.artDetailApi.registerGraph(
             navController, this, modifier
         )
 

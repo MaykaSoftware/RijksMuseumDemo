@@ -63,11 +63,6 @@ dependencies {
     implementation(project(":feature:settings:data"))
     implementation(project(":feature:settings:ui"))
 
-
-    implementation(project(":feature:art_details:domain"))
-    implementation(project(":feature:art_details:data"))
-    implementation(project(":feature:art_details:ui"))
-
     implementation(project(":core:common"))
     implementation(project(":core:feature_api"))
     implementation(project(":feature:bottombar"))
