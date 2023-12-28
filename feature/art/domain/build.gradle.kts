@@ -77,4 +77,9 @@ dependencies {
     implementation(Deps.hiltAndroid)
     kapt(Deps.hiltCompiler)
     implementation(Deps.hiltNavigation)
+
+    //Retrofit
+    implementation (Deps.retrofit)
+    implementation (Deps.retrofitConverter)
+    implementation (Deps.loggingInterceptor)
 }

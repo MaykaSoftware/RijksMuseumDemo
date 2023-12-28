@@ -13,7 +13,7 @@ fun AppNavGraph(modifier: Modifier = Modifier, navController: NavHostController,
             navController, this, modifier
         )
 
-        navigationProvider.artDetailApi.registerGraph(
+        navigationProvider.settingsApi.registerGraph(
             navController, this, modifier
         )
     }

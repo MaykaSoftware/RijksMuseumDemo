@@ -45,6 +45,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:common"))
 
     testImplementation(Deps.junit)
     testImplementation (Deps.testCore)

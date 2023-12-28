@@ -1,27 +1,26 @@
 package com.feature.art.ui.navigation
 
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.core.common.navigation_constants.ArtDetailFeature
 import com.core.common.navigation_constants.ArtFeature
 import com.core.feature_api.FeatureApi
-import com.feature.art.ui.screen.ArtScreen
-import com.feature.art.ui.screen.ArtViewModel
+import com.feature.art.ui.screen.art.ArtScreen
+import com.feature.art.ui.screen.art.ArtViewModel
+import com.feature.art.ui.screen.art_detail.ArtDetailViewModel
+import com.feature.art.ui.screen.art_detail.ArtDetailsScreen
 
-internal object InternalArtFeatureApi : FeatureApi {
+internal object  InternalArtFeatureApi : FeatureApi {
     override fun registerGraph(
         navController: androidx.navigation.NavHostController,
         navGraphBuilder: androidx.navigation.NavGraphBuilder,
         modifier: Modifier
     ) {
-//        navGraphBuilder.composable(ArtFeature.artScreenRoute) {
-//            val viewModel: ArtViewModel = hiltViewModel()
-//            val artObjects = viewModel.artObjectFlow.collectAsLazyPagingItems()
-//            ArtScreen(artObjects, navController, modifier)
-//        }
-
         navGraphBuilder.navigation(
             startDestination = ArtFeature.artScreenRoute,
             route = ArtFeature.nestedRoute
@@ -30,6 +29,11 @@ internal object InternalArtFeatureApi : FeatureApi {
                 val viewModel: ArtViewModel = hiltViewModel()
                 val artObjects = viewModel.artObjectFlow.collectAsLazyPagingItems()
                 ArtScreen(artObjects, navController, modifier)
+            }
+            composable(ArtFeature.artDetailScreenRoute){
+                val viewModel: ArtDetailViewModel = hiltViewModel()
+                val state by viewModel.state.collectAsState()
+                ArtDetailsScreen(state, navController, modifier)
             }
         }
     }

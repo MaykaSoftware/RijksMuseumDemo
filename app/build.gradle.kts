@@ -58,14 +58,14 @@ dependencies {
     implementation(project(":feature:art:domain"))
     implementation(project(":feature:art:data"))
     implementation(project(":feature:art:ui"))
-    implementation(project(":feature:bottombar"))
 
-    implementation(project(":feature:art_details:domain"))
-    implementation(project(":feature:art_details:data"))
-    implementation(project(":feature:art_details:ui"))
+    implementation(project(":feature:settings:domain"))
+    implementation(project(":feature:settings:data"))
+    implementation(project(":feature:settings:ui"))
 
     implementation(project(":core:common"))
     implementation(project(":core:feature_api"))
+    implementation(project(":feature:bottombar"))
 
     implementation(Deps.core)
     implementation(Deps.lifecycle)
