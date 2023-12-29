@@ -5,6 +5,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.farid.rijksmuseumdemo.navigation.AppNavGraph
 import com.farid.rijksmuseumdemo.navigation.NavigationProvider
@@ -18,15 +19,7 @@ fun RijksMuseumDemoApp(
 ) {
     val navController = rememberNavController()
     val tabs = remember { BottomTabs.entries.toTypedArray() }
-
-    val shouldShowBottomNavigation = when (currentRoute(navController)) {
-        BottomTabs.HOME.route,
-        BottomTabs.ART.route,
-        BottomTabs.SETTINGS.route,
-        -> true
-
-        else -> false
-    }
+    val shouldShowBottomNavigation = showBottomBar(currentRoute(navController))
 
     Scaffold(
         bottomBar = {
@@ -41,5 +34,16 @@ fun RijksMuseumDemoApp(
             navigationProvider = navigationProvider,
             modifier = Modifier.padding(innerPaddingModifier)
         )
+    }
+}
+
+fun showBottomBar(currentRoute: String?): Boolean {
+    return when (currentRoute) {
+        BottomTabs.HOME.route,
+        BottomTabs.ART.route,
+        BottomTabs.SETTINGS.route,
+        -> true
+
+        else -> false
     }
 }
