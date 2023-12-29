@@ -7,7 +7,11 @@ import androidx.navigation.compose.NavHost
 import com.core.common.navigation_constants.HomeFeature
 
 @Composable
-fun AppNavGraph(modifier: Modifier = Modifier, navController: NavHostController, navigationProvider: NavigationProvider){
+fun AppNavGraph(
+    modifier: Modifier = Modifier,
+    navController: NavHostController,
+    navigationProvider: NavigationProvider
+) {
     NavHost(navController = navController, startDestination = HomeFeature.nestedHomeRoute) {
         navigationProvider.homeApi.registerGraph(
             navController, this, modifier

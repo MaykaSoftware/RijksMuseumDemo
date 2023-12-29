@@ -29,7 +29,7 @@ jobs:
           arguments: build
 
   android-unit-test:
-    needs: [build]
+    needs: [ build ]
     name: Build and test
     runs-on: ubuntu-latest
     steps:
@@ -52,7 +52,7 @@ jobs:
           path: '**/build/reports/tests/'
 
   android-instrumentation-test:
-    needs: [Build]
+    needs: [ Build ]
     name: Android Instrumentation Tests
     runs-on: macos-latest
     continue-on-error: true
@@ -95,7 +95,7 @@ jobs:
           path: '**/build/reports/androidTests/'
 
   build_job:
-    needs: [android-instrumentation-test, android-unit-test]
+    needs: [ android-instrumentation-test, android-unit-test ]
     name: Building the APK
     runs-on: ubuntu-latest
     continue-on-error: true

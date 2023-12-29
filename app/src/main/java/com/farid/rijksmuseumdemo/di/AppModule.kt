@@ -14,7 +14,11 @@ import dagger.hilt.components.SingletonComponent
 object AppModule {
 
     @Provides
-    fun provideNavigationProvider(homeApi: HomeApi, artApi: ArtApi, settingsApi: SettingsApi): NavigationProvider {
+    fun provideNavigationProvider(
+        homeApi: HomeApi,
+        artApi: ArtApi,
+        settingsApi: SettingsApi
+    ): NavigationProvider {
         return NavigationProvider(homeApi, artApi, settingsApi)
     }
 }

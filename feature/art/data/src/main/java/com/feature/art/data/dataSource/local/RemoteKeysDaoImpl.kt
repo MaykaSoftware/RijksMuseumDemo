@@ -5,7 +5,7 @@ import com.core.cache.dataSource.database.ArtDatabase
 import com.feature.common.domain.entity.art.RemoteKeysEntity
 import javax.inject.Inject
 
-class RemoteKeysDaoImpl @Inject constructor(private val database: ArtDatabase): RemoteKeysDao {
+class RemoteKeysDaoImpl @Inject constructor(private val database: ArtDatabase) : RemoteKeysDao {
     override suspend fun insertAll(remoteKey: List<RemoteKeysEntity>) {
         database.getRemoteKeysDao().insertAll(remoteKey)
     }

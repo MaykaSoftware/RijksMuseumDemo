@@ -47,7 +47,8 @@ object Deps {
     const val junit = "junit:junit:${Version.junit}"
     const val testCore = "androidx.test:core:${Version.testCore}"
     const val archCoreTesting = "androidx.arch.core:core-testing:${Version.archCoreTesting}"
-    const val kotlinCoroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.kotlinCoroutinesTest}"
+    const val kotlinCoroutinesTest =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Version.kotlinCoroutinesTest}"
     const val truth = "com.google.truth:truth:${Version.truth}"
     const val mockk = "io.mockk:mockk:${Version.mockk}"
     const val turbine = "app.cash.turbine:turbine:${Version.turbine}"
@@ -65,8 +66,10 @@ object Deps {
     const val hiltAndroidCompilerTesting = "com.google.dagger:hilt-android-compiler:${Version.hilt}"
 
     //compose
-    const val composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Version.composeViewModel}"
-    const val materialIcons = "androidx.compose.material:material-icons-extended:${Version.materialIcons}"
+    const val composeViewModel =
+        "androidx.lifecycle:lifecycle-viewmodel-compose:${Version.composeViewModel}"
+    const val materialIcons =
+        "androidx.compose.material:material-icons-extended:${Version.materialIcons}"
 
     const val core = "androidx.core:core-ktx:${Version.core}"
     const val lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.lifecycle}"
@@ -86,10 +89,12 @@ object Deps {
     const val roomRuntime = "androidx.room:room-runtime:${Version.room}"
     const val roomCompiler = "androidx.room:room-compiler:${Version.room}"
     const val roomPaging = "androidx.room:room-paging:${Version.room}"
+
     //Kotlin extensions
     const val roomKtx = "androidx.room:room-ktx:${Version.room}"
 
-    const val kotlinxSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Version.kotlinxSerialization}"
+    const val kotlinxSerialization =
+        "org.jetbrains.kotlinx:kotlinx-serialization-json:${Version.kotlinxSerialization}"
 
     //Coil compose
     const val coil = "io.coil-kt:coil-compose:${Version.coil}"
@@ -100,11 +105,14 @@ object Deps {
 
     //Retrofit
     const val retrofit = "com.squareup.retrofit2:retrofit:${Version.retrofit}"
-    const val retrofitConverter = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Version.kotlinConverter}"
-    const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Version.loggingInterceptor}"
+    const val retrofitConverter =
+        "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${Version.kotlinConverter}"
+    const val loggingInterceptor =
+        "com.squareup.okhttp3:logging-interceptor:${Version.loggingInterceptor}"
 
     //Navigation
-    const val composeNavigation = "androidx.navigation:navigation-compose:${Version.composeNavigation}"
+    const val composeNavigation =
+        "androidx.navigation:navigation-compose:${Version.composeNavigation}"
 }
 
 object DaggerHilt {

@@ -21,7 +21,7 @@ class ArtDetailUseCase @Inject constructor(
      * **/
 
     suspend operator fun invoke(objectNumber: String): Flow<Resource> = flow {
-        if (objectNumber.isNotEmpty()){
+        if (objectNumber.isNotEmpty()) {
             emit(Resource.Loading)
             try {
                 val artDetailObject = artRepository.getArtObject(objectNumber)
@@ -37,7 +37,7 @@ class ArtDetailUseCase @Inject constructor(
     }
 
     suspend fun getArtObjectDetailFlow(objectNumber: String): Flow<Resource> = flow {
-        if (objectNumber.isNotEmpty()){
+        if (objectNumber.isNotEmpty()) {
             emit(Resource.Loading)
             try {
                 val flow = artRepository.getArtObjectFlow(objectNumber).map {

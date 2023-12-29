@@ -45,8 +45,12 @@ sealed interface ListArtObjectUiState {
 enum class MyListContentType { Header, Cell }
 
 @Composable
-fun ArtScreen(artObjects: LazyPagingItems<ListArtObjectUiState>, navController: NavController, modifier: Modifier = Modifier) {
-    ArtListScreen(artObjects = artObjects,navController, modifier)
+fun ArtScreen(
+    artObjects: LazyPagingItems<ListArtObjectUiState>,
+    navController: NavController,
+    modifier: Modifier = Modifier
+) {
+    ArtListScreen(artObjects = artObjects, navController, modifier)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

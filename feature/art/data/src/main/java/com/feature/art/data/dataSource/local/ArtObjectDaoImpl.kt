@@ -8,7 +8,7 @@ import com.feature.common.domain.entity.art_detail.ArtObjectDetailEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class ArtObjectDaoImpl @Inject constructor(private val database: ArtDatabase): ArtObjectDao {
+class ArtObjectDaoImpl @Inject constructor(private val database: ArtDatabase) : ArtObjectDao {
     override suspend fun upsertAll(artObjectEntity: List<ArtObjectEntity>) {
         database.artObjectDao().upsertAll(artObjectEntity)
     }

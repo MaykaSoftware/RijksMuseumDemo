@@ -32,7 +32,12 @@ enum class BottomTabs(
 ) {
     HOME("Home", Icons.Filled.Home, Icons.Outlined.Home, HomeFeature.homeScreenRoute),
     ART("Art", Icons.Filled.Architecture, Icons.Outlined.Architecture, ArtFeature.artScreenRoute),
-    SETTINGS("Settings", Icons.Filled.Settings, Icons.Outlined.Settings,SettingsFeature.settingsScreenRoute)
+    SETTINGS(
+        "Settings",
+        Icons.Filled.Settings,
+        Icons.Outlined.Settings,
+        SettingsFeature.settingsScreenRoute
+    )
 }
 
 @Composable
@@ -46,31 +51,35 @@ fun NavigationBottomBar(
     navController: NavController,
     tabs: Array<BottomTabs>
 ) {
-        val currentRoute = currentRoute(navController = navController)
-        NavigationBar {
-            tabs.forEach { tab ->
-                NavigationBarItem(
-                    icon = { Icon( imageVector = if (tab.route == currentRoute) {
-                        tab.selectedIcon
-                    } else {
-                        tab.unSelectedIcon
-                    }, contentDescription = tab.title) },
-                    label = { Text(tab.title.uppercase(Locale.getDefault())) },
-                    selected = currentRoute == tab.route,
-                    onClick = {
-                        if (tab.route != currentRoute) {
-                                navController.navigate(tab.route) {
-                                    popUpTo(navController.graph.findStartDestination().id) {
-                                        saveState = true
-                                    }
-                                    launchSingleTop = true
-                                    restoreState = true
-                                }
+    val currentRoute = currentRoute(navController = navController)
+    NavigationBar {
+        tabs.forEach { tab ->
+            NavigationBarItem(
+                icon = {
+                    Icon(
+                        imageVector = if (tab.route == currentRoute) {
+                            tab.selectedIcon
+                        } else {
+                            tab.unSelectedIcon
+                        }, contentDescription = tab.title
+                    )
+                },
+                label = { Text(tab.title.uppercase(Locale.getDefault())) },
+                selected = currentRoute == tab.route,
+                onClick = {
+                    if (tab.route != currentRoute) {
+                        navController.navigate(tab.route) {
+                            popUpTo(navController.graph.findStartDestination().id) {
+                                saveState = true
                             }
-                    },
-                    alwaysShowLabel = false,
-                    modifier = Modifier.navigationBarsPadding()
-                )
-            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                    }
+                },
+                alwaysShowLabel = false,
+                modifier = Modifier.navigationBarsPadding()
+            )
         }
+    }
 }

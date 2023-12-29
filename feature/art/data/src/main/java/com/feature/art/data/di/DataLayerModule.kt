@@ -25,7 +25,8 @@ object DataLayerModule {
 
     @Singleton
     @Provides
-    fun provideRemoteKeysDao(remoteKeysDaoImpl: RemoteKeysDaoImpl): RemoteKeysDao = remoteKeysDaoImpl
+    fun provideRemoteKeysDao(remoteKeysDaoImpl: RemoteKeysDaoImpl): RemoteKeysDao =
+        remoteKeysDaoImpl
 
     @Provides
     @Singleton

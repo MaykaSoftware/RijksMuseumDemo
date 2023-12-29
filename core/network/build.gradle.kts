@@ -39,17 +39,17 @@ dependencies {
     implementation(project(":feature:common:domain"))
 
     testImplementation(Deps.junit)
-    testImplementation (Deps.testCore)
-    testImplementation (Deps.archCoreTesting)
-    testImplementation (Deps.kotlinCoroutinesTest)
-    testImplementation (Deps.truth)
-    testImplementation (Deps.mockk)
-    testImplementation (Deps.turbine)
+    testImplementation(Deps.testCore)
+    testImplementation(Deps.archCoreTesting)
+    testImplementation(Deps.kotlinCoroutinesTest)
+    testImplementation(Deps.truth)
+    testImplementation(Deps.mockk)
+    testImplementation(Deps.turbine)
 
 
     androidTestImplementation(Deps.junitExt)
-    androidTestImplementation (Deps.testRunner)
-    androidTestImplementation (Deps.testRules)
+    androidTestImplementation(Deps.testRunner)
+    androidTestImplementation(Deps.testRules)
     androidTestImplementation(Deps.composeBomTest)
     androidTestImplementation(Deps.uiTest)
     debugImplementation(Deps.composeToolingTest)
@@ -68,9 +68,9 @@ dependencies {
     implementation(Deps.material3)
 
     //Retrofit
-    implementation (Deps.retrofit)
-    implementation (Deps.retrofitConverter)
-    implementation (Deps.loggingInterceptor)
+    implementation(Deps.retrofit)
+    implementation(Deps.retrofitConverter)
+    implementation(Deps.loggingInterceptor)
 
     //Hilt
     implementation(Deps.hiltAndroid)

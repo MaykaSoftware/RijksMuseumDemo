@@ -37,7 +37,8 @@ class ArtObjectRemoteMediator @Inject constructor(
             LoadType.PREPEND -> {
                 val remoteKeys = getRemoteKeyForFirstItem(state)
                 val prevKey = remoteKeys?.prevKey
-                prevKey ?: return MediatorResult.Success(endOfPaginationReached = remoteKeys != null)
+                prevKey
+                    ?: return MediatorResult.Success(endOfPaginationReached = remoteKeys != null)
             }
 
             LoadType.APPEND -> {

@@ -102,8 +102,8 @@ fun ArtObjectItem(
             }
             IconButton(onClick = { expanded = !expanded }) {
                 Icon(
-                    imageVector = if(expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
-                    contentDescription = if(expanded) "Show less" else "Show more"
+                    imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                    contentDescription = if (expanded) "Show less" else "Show more"
                 )
             }
         }

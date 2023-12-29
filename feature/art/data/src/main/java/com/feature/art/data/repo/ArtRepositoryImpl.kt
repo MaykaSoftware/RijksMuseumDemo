@@ -44,7 +44,7 @@ class ArtRepositoryImpl @Inject constructor(
 
     override suspend fun getArtObject(objectNumber: String): ArtObjectDetail {
         val resultDb = artObjectDaoImpl.getArtObjectById(objectNumber)
-        return if(resultDb != null){
+        return if (resultDb != null) {
             resultDb.toArtObjectDetail()
         } else {
             val result = artDataSource.getMuseumObject("nl", objectNumber)

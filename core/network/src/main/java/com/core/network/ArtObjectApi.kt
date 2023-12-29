@@ -14,7 +14,7 @@ interface ArtObjectApi {
         @Path("culture") language: String,
         @Query("p") page: Int,
         @Query("ps") pageCount: Int,
-        @Query("s") artist : String = "artist",
+        @Query("s") artist: String = "artist",
         @Query("imgonly") hasImage: Boolean = true
     ): ArtResponse
 

@@ -5,11 +5,11 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import com.core.feature_api.FeatureApi
 
-interface HomeApi: FeatureApi {
+interface HomeApi : FeatureApi {
 
 }
 
-class HomeApiImpl: HomeApi {
+class HomeApiImpl : HomeApi {
     override fun registerGraph(
         navController: NavHostController,
         navGraphBuilder: NavGraphBuilder,

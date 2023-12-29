@@ -9,8 +9,8 @@ import javax.inject.Inject
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
 
-): ViewModel() {
-    private val mutableState = MutableStateFlow <State>(State.Loading)
+) : ViewModel() {
+    private val mutableState = MutableStateFlow<State>(State.Loading)
     val state = mutableState.asStateFlow()
 }
 

@@ -14,7 +14,7 @@ import com.feature.art.ui.screen.art.ArtViewModel
 import com.feature.art.ui.screen.art_detail.ArtDetailViewModel
 import com.feature.art.ui.screen.art_detail.ArtDetailsScreen
 
-internal object  InternalArtFeatureApi : FeatureApi {
+internal object InternalArtFeatureApi : FeatureApi {
     override fun registerGraph(
         navController: androidx.navigation.NavHostController,
         navGraphBuilder: androidx.navigation.NavGraphBuilder,
@@ -29,7 +29,7 @@ internal object  InternalArtFeatureApi : FeatureApi {
                 val artObjects = viewModel.artObjectFlow.collectAsLazyPagingItems()
                 ArtScreen(artObjects, navController, modifier)
             }
-            composable(ArtFeature.artDetailScreenRoute){
+            composable(ArtFeature.artDetailScreenRoute) {
                 val viewModel: ArtDetailViewModel = hiltViewModel()
                 val state by viewModel.state.collectAsState()
                 ArtDetailsScreen(state, navController, modifier)
