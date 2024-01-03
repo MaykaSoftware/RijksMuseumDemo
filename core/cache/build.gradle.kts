@@ -59,4 +59,5 @@ dependencies {
     implementation(Deps.hiltNavigation)
 
     implementation(Deps.kotlinxSerialization)
+    implementation(Deps.datastore)
 }

@@ -12,7 +12,7 @@ import dagger.hilt.components.SingletonComponent
 object UiModule {
 
     @Provides
-    fun provideSettingsApi(): HomeApi {
+    fun provideHomeApi(): HomeApi {
         return HomeApiImpl()
     }
 }

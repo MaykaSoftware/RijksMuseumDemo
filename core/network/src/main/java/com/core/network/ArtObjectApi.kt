@@ -1,8 +1,9 @@
 package com.core.network
 
 
-import com.farid.rijksmuseumdemo.data.remote.dto.detail.ArtDetailResponse
-import com.farid.rijksmuseumdemo.data.remote.dto.home.ArtResponse
+
+import com.feature.common.domain.dto.detail.ArtDetailResponse
+import com.feature.common.domain.dto.home.ArtResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

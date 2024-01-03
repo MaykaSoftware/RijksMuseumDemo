@@ -1,8 +1,9 @@
 package com.feature.common.domain.mapper
 
-import com.farid.rijksmuseumdemo.data.remote.dto.detail.ArtDetailResponse
-import com.farid.rijksmuseumdemo.data.remote.dto.detail.ArtObjectDetailResponse
-import com.farid.rijksmuseumdemo.data.remote.dto.detail.WebImageDetailResponse
+import com.feature.common.domain.dto.detail.ArtDetailResponse
+import com.feature.common.domain.dto.detail.ArtObjectDetailResponse
+import com.feature.common.domain.dto.detail.WebImageDetailResponse
+
 
 fun ArtDetailResponse.toArtDetailEntity(): com.feature.common.domain.entity.art_detail.ArtDetailEntity {
     return com.feature.common.domain.entity.art_detail.ArtDetailEntity(
