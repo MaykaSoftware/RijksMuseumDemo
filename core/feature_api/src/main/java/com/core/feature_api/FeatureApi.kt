@@ -8,6 +8,7 @@ interface FeatureApi {
     fun registerGraph(
         navController: NavHostController,
         navGraphBuilder: NavGraphBuilder,
-        modifier: Modifier = Modifier
+        modifier: Modifier = Modifier,
+        onTitleChanged: (String) -> Unit
     )
 }

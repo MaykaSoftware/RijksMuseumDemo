@@ -12,9 +12,10 @@ class OnboardingApiImpl : OnboardingApi {
     override fun registerGraph(
         navController: NavHostController,
         navGraphBuilder: NavGraphBuilder,
-        modifier: Modifier
+        modifier: Modifier,
+        onTitleChanged: (String) -> Unit
     ) {
-        InternalOnboardingFeatureApi.registerGraph(navController, navGraphBuilder, modifier)
+        InternalOnboardingFeatureApi.registerGraph(navController, navGraphBuilder, modifier, onTitleChanged)
     }
 
 }

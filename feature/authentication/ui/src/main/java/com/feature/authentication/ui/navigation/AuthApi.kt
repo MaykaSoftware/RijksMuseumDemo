@@ -12,9 +12,10 @@ class AuthApiImpl : AuthApi {
     override fun registerGraph(
         navController: NavHostController,
         navGraphBuilder: NavGraphBuilder,
-        modifier: Modifier
+        modifier: Modifier,
+        onTitleChanged: (String) -> Unit
     ) {
-        InternalAuthFeatureApi.registerGraph(navController, navGraphBuilder, modifier)
+        InternalAuthFeatureApi.registerGraph(navController, navGraphBuilder, modifier, onTitleChanged)
     }
 
 }

@@ -13,8 +13,9 @@ class SettingsApiImpl : SettingsApi {
     override fun registerGraph(
         navController: NavHostController,
         navGraphBuilder: NavGraphBuilder,
-        modifier: Modifier
+        modifier: Modifier,
+        onTitleChanged: (String) -> Unit
     ) {
-        InternalSettingsFeatureApi.registerGraph(navController, navGraphBuilder, modifier)
+        InternalSettingsFeatureApi.registerGraph(navController, navGraphBuilder, modifier, onTitleChanged)
     }
 }

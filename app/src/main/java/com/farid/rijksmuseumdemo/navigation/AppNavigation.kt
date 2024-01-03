@@ -10,23 +10,24 @@ fun AppNavGraph(
     modifier: Modifier = Modifier,
     navController: NavHostController,
     navigationProvider: NavigationProvider,
-    startDestination: String
+    startDestination: String,
+    onTitleChanged: (String) -> Unit
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
         navigationProvider.onboardingApi.registerGraph(
-            navController, this, modifier
+            navController, this, modifier, onTitleChanged
         )
         navigationProvider.authApi.registerGraph(
-            navController, this, modifier
+            navController, this, modifier, onTitleChanged
         )
         navigationProvider.homeApi.registerGraph(
-            navController, this, modifier
+            navController, this, modifier, onTitleChanged
         )
         navigationProvider.artApi.registerGraph(
-            navController, this, modifier
+            navController, this, modifier, onTitleChanged
         )
         navigationProvider.settingsApi.registerGraph(
-            navController, this, modifier
+            navController, this, modifier, onTitleChanged
         )
     }
 }

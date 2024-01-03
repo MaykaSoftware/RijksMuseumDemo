@@ -13,8 +13,9 @@ class HomeApiImpl : HomeApi {
     override fun registerGraph(
         navController: NavHostController,
         navGraphBuilder: NavGraphBuilder,
-        modifier: Modifier
+        modifier: Modifier,
+        onTitleChanged: (String) -> Unit
     ) {
-        InternalHomeFeatureApi.registerGraph(navController, navGraphBuilder, modifier)
+        InternalHomeFeatureApi.registerGraph(navController, navGraphBuilder, modifier, onTitleChanged)
     }
 }
