@@ -9,7 +9,6 @@ import com.feature.common.domain.entity.auth.UserEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
-import javax.inject.Singleton
 
 
 class AuthCacheDataSource @Inject constructor(

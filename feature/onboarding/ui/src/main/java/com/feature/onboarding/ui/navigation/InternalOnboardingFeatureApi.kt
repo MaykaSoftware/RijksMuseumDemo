@@ -4,8 +4,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.composable
-import androidx.navigation.navigation
-import com.core.common.navigation_constants.ArtFeature
 import com.core.common.navigation_constants.OnboardingFeature
 import com.core.feature_api.FeatureApi
 import com.feature.onboarding.ui.OnBoardingViewModel
