@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
+
 class AuthCacheDataSource @Inject constructor(
     private val dataStore: DataStore<Preferences>,
     private val userDao: UserDao

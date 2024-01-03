@@ -8,7 +8,6 @@ import com.feature.common.domain.request.RegisterRequest
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
 class AuthRemoteDataSource @Inject constructor(
     private val dummyAuthService: DummyAuthService
 ) {
