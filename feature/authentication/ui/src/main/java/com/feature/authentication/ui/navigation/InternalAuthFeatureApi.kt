@@ -17,13 +17,15 @@ internal object InternalAuthFeatureApi : FeatureApi {
     override fun registerGraph(
         navController: androidx.navigation.NavHostController,
         navGraphBuilder: androidx.navigation.NavGraphBuilder,
-        modifier: Modifier
+        modifier: Modifier,
+        onTitleChanged: (String) -> Unit
     ) {
         navGraphBuilder.navigation(
             startDestination = AuthenticationFeature.loginScreenRoute,
             route = AuthenticationFeature.nestedAuthenticationRoute
         ) {
             composable(AuthenticationFeature.loginScreenRoute) {
+                onTitleChanged("")
                 val viewModel: LoginViewModel = hiltViewModel()
                 val state by viewModel.uiState.collectAsState()
                 LoginScreen(
@@ -31,6 +33,7 @@ internal object InternalAuthFeatureApi : FeatureApi {
                 )
             }
             composable(AuthenticationFeature.registerScreenRoute) {
+                onTitleChanged("")
                 val viewModel: RegisterViewModel = hiltViewModel()
                 val state by viewModel.uiState.collectAsState()
                 RegisterScreen(modifier, navController, state, viewModel::onEvent)

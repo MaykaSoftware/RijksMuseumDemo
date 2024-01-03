@@ -27,15 +27,15 @@ interface AuthService {
 
 @Singleton
 class DummyAuthService @Inject constructor() {
-    suspend fun register(register: RegisterRequest): Result<LoginDTO> {
+    fun register(register: RegisterRequest): Result<LoginDTO> {
         return if(register.password != "123456") {
             Result.success(
                 LoginDTO(
                     1,
                     "token",
-                    "Farid",
-                    "farid@example.com",
-                    "Farid Benhaimoud"
+                    "abc",
+                    "abc@example.com",
+                    "Adam Yousef"
                 )
             )
         } else {
@@ -43,15 +43,15 @@ class DummyAuthService @Inject constructor() {
         }
     }
 
-    suspend fun login(login: LoginRequest): Result<LoginDTO> {
-        return if(login.username == "farid@qbus-ict.nl" && login.password == "farid01"){
+    fun login(login: LoginRequest): Result<LoginDTO> {
+        return if(login.username == "abc@example.com" && login.password == "abcdef"){
             Result.success(
                 LoginDTO(
                     1,
                     "token",
-                    "Farid",
-                    "farid@example.com",
-                    "Farid Benhaimoud"
+                    "Adam",
+                    "abc@example.com",
+                    "Adam Yousef"
                 )
             )
         } else {

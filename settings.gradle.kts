@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":feature:topbar")
+
+
 
 pluginManagement {
     repositories {

@@ -12,9 +12,10 @@ class ArtApiImpl : ArtApi {
     override fun registerGraph(
         navController: NavHostController,
         navGraphBuilder: NavGraphBuilder,
-        modifier: Modifier
+        modifier: Modifier,
+        onTitleChanged: (String) -> Unit
     ) {
-        InternalArtFeatureApi.registerGraph(navController, navGraphBuilder, modifier)
+        InternalArtFeatureApi.registerGraph(navController, navGraphBuilder, modifier, onTitleChanged)
     }
 
 }

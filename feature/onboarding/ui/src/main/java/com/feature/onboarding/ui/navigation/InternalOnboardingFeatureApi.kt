@@ -13,9 +13,11 @@ internal object InternalOnboardingFeatureApi : FeatureApi {
     override fun registerGraph(
         navController: androidx.navigation.NavHostController,
         navGraphBuilder: androidx.navigation.NavGraphBuilder,
-        modifier: Modifier
+        modifier: Modifier,
+        onTitleChanged: (String) -> Unit
     ) {
         navGraphBuilder.composable(OnboardingFeature.onboardingScreenRoute) {
+            onTitleChanged("")
             val viewModel: OnBoardingViewModel = hiltViewModel()
             OnBoardingScreen(
                 modifier = Modifier.fillMaxSize(),

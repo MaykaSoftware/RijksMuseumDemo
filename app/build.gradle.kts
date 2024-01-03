@@ -58,6 +58,7 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:feature_api"))
     implementation(project(":feature:bottombar"))
+    implementation(project(":feature:topbar"))
 
     implementation(project(":feature:onboarding:data"))
     implementation(project(":feature:onboarding:domain"))
