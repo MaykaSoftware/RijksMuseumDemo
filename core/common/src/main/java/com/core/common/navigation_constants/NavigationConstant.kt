@@ -1,5 +1,15 @@
 package com.core.common.navigation_constants
 
+object OnboardingFeature {
+    const val onboardingScreenRoute = "onboarding_screen_route"
+}
+
+object AuthenticationFeature {
+    const val nestedAuthenticationRoute = "authentication_route"
+    const val loginScreenRoute = "login_screen_route"
+    const val registerScreenRoute = "register_screen_route"
+}
+
 object ArtFeature {
     const val nestedRoute = "art_nested_route"
     const val artScreenRoute = "art_screen_route"

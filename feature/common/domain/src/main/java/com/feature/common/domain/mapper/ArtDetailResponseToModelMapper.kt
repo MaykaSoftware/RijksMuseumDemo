@@ -1,7 +1,7 @@
 package com.feature.common.domain.mapper
 
-import com.farid.rijksmuseumdemo.data.remote.dto.detail.ArtObjectDetailResponse
-import com.farid.rijksmuseumdemo.data.remote.dto.detail.WebImageDetailResponse
+import com.feature.common.domain.dto.detail.ArtObjectDetailResponse
+import com.feature.common.domain.dto.detail.WebImageDetailResponse
 import com.feature.common.domain.model.art_detail.ArtObjectDetail
 import com.feature.common.domain.model.art_detail.WebImageDetail
 

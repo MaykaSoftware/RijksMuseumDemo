@@ -40,6 +40,7 @@ object Version {
     const val testRunner = "1.5.0"
     const val testRules = "1.5.0"
     const val composeBomTest = "2023.10.00"
+    const val datastore = "1.0.0"
 }
 
 object Deps {
@@ -113,6 +114,8 @@ object Deps {
     //Navigation
     const val composeNavigation =
         "androidx.navigation:navigation-compose:${Version.composeNavigation}"
+
+    const val datastore = "androidx.datastore:datastore-preferences:${Version.datastore}"
 }
 
 object DaggerHilt {

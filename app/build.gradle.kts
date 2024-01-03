@@ -17,6 +17,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        multiDexEnabled = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -54,21 +55,29 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:home:domain"))
-    implementation(project(":feature:home:data"))
-    implementation(project(":feature:home:ui"))
-
-    implementation(project(":feature:art:domain"))
-    implementation(project(":feature:art:data"))
-    implementation(project(":feature:art:ui"))
-
-    implementation(project(":feature:settings:domain"))
-    implementation(project(":feature:settings:data"))
-    implementation(project(":feature:settings:ui"))
-
     implementation(project(":core:common"))
     implementation(project(":core:feature_api"))
     implementation(project(":feature:bottombar"))
+
+    implementation(project(":feature:onboarding:data"))
+    implementation(project(":feature:onboarding:domain"))
+    implementation(project(":feature:onboarding:ui"))
+
+    implementation(project(":feature:authentication:data"))
+    implementation(project(":feature:authentication:domain"))
+    implementation(project(":feature:authentication:ui"))
+
+    implementation(project(":feature:home:data"))
+    implementation(project(":feature:home:domain"))
+    implementation(project(":feature:home:ui"))
+
+    implementation(project(":feature:art:data"))
+    implementation(project(":feature:art:domain"))
+    implementation(project(":feature:art:ui"))
+
+    implementation(project(":feature:settings:data"))
+    implementation(project(":feature:settings:domain"))
+    implementation(project(":feature:settings:ui"))
 
     implementation(Deps.core)
     implementation(Deps.lifecycle)

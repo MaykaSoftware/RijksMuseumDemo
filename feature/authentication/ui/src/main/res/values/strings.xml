@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="label_error_username">Please fill in a correct username!</string>
+    <string name="label_error_email">Please fill in a correct email address!</string>
+    <string name="label_error_password">Password too short!</string>
+    <string name="label_error_verify_password">Passwords not the same!</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_username">Username</string>
+    <string name="btn_label_login">Login</string>
+    <string name="btn_label_signout">Log out</string>
+    <string name="btn_label_signup">Signup</string>
+    <string name="label_no_account">Don\'t have an account?</string>
+    <string name="label_signup">Signup</string>
+</resources>

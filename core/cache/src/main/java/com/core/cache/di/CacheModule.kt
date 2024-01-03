@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.core.cache.dataSource.dao.ArtObjectDao
 import com.core.cache.dataSource.dao.RemoteKeysDao
+import com.core.cache.dataSource.dao.UserDao
 import com.core.cache.dataSource.database.ArtDatabase
 import dagger.Module
 import dagger.Provides
@@ -35,7 +36,12 @@ object CacheModule {
 
     @Singleton
     @Provides
-    fun provideRemoteKeysDao(artObjectDatabase: ArtDatabase): RemoteKeysDao =
-        artObjectDatabase.getRemoteKeysDao()
+    fun provideRemoteKeysDao(appDatabase: ArtDatabase): RemoteKeysDao =
+        appDatabase.getRemoteKeysDao()
+
+    @Singleton
+    @Provides
+    fun provideUserDao(appDatabase: ArtDatabase): UserDao =
+        appDatabase.userDao()
 
 }

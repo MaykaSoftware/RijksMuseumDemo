@@ -1,4 +1,4 @@
-package com.farid.rijksmuseumdemo.data.remote.dto.home
+package com.feature.common.domain.dto.home
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
