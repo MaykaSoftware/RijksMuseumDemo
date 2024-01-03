@@ -41,6 +41,7 @@ object Version {
     const val testRules = "1.5.0"
     const val composeBomTest = "2023.10.00"
     const val datastore = "1.0.0"
+    const val splash = "1.0.1"
 }
 
 object Deps {
@@ -116,6 +117,8 @@ object Deps {
         "androidx.navigation:navigation-compose:${Version.composeNavigation}"
 
     const val datastore = "androidx.datastore:datastore-preferences:${Version.datastore}"
+
+    const val splash = "androidx.core:core-splashscreen:${Version.splash}"
 }
 
 object DaggerHilt {

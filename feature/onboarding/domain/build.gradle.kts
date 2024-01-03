@@ -38,6 +38,7 @@ android {
 
 dependencies {
     implementation(project(":feature:onboarding:data"))
+    implementation(project(":feature:authentication:data"))
     testImplementation(Deps.junit)
     testImplementation(Deps.testCore)
     testImplementation(Deps.archCoreTesting)

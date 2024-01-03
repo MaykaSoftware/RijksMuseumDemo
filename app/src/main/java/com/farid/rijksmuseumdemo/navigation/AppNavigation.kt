@@ -4,15 +4,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.core.common.navigation_constants.OnboardingFeature
 
 @Composable
 fun AppNavGraph(
     modifier: Modifier = Modifier,
     navController: NavHostController,
-    navigationProvider: NavigationProvider
+    navigationProvider: NavigationProvider,
+    startDestination: String
 ) {
-    NavHost(navController = navController, startDestination = OnboardingFeature.onboardingScreenRoute) {
+    NavHost(navController = navController, startDestination = startDestination) {
         navigationProvider.onboardingApi.registerGraph(
             navController, this, modifier
         )

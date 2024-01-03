@@ -143,6 +143,9 @@ dependencies {
     //Navigation
     implementation(Deps.composeNavigation)
 
+    //splash
+    implementation(Deps.splash)
+
 }
 
 // Allow references to generated code
