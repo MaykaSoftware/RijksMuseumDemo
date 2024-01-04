@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="strRetry">Retry</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="back_button">back button</string>
+
+    <string name="title_topbar_art">Art list</string>
+    <string name="title_topbar_art_detail">Art detail</string>
+</resources>

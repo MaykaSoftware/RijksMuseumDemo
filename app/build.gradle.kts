@@ -17,6 +17,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        multiDexEnabled = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -54,77 +55,97 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:common"))
+    implementation(project(":core:feature_api"))
+    implementation(project(":feature:bottombar"))
+    implementation(project(":feature:topbar"))
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.activity:activity-compose:1.8.2")
-    implementation(platform("androidx.compose:compose-bom:2023.10.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
+    implementation(project(":feature:onboarding:data"))
+    implementation(project(":feature:onboarding:domain"))
+    implementation(project(":feature:onboarding:ui"))
+
+    implementation(project(":feature:authentication:data"))
+    implementation(project(":feature:authentication:domain"))
+    implementation(project(":feature:authentication:ui"))
+
+    implementation(project(":feature:home:data"))
+    implementation(project(":feature:home:domain"))
+    implementation(project(":feature:home:ui"))
+
+    implementation(project(":feature:art:data"))
+    implementation(project(":feature:art:domain"))
+    implementation(project(":feature:art:ui"))
+
+    implementation(project(":feature:settings:data"))
+    implementation(project(":feature:settings:domain"))
+    implementation(project(":feature:settings:ui"))
+
+    implementation(Deps.core)
+    implementation(Deps.lifecycle)
+    implementation(Deps.activityCompose)
+    implementation(Deps.composeBom)
+    implementation(Deps.composeUI)
+    implementation(Deps.composeGraphics)
+    implementation(Deps.composeTooling)
+    implementation(Deps.material3)
 
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation ("androidx.test:runner:1.5.2")
-    androidTestImplementation ("androidx.test:rules:1.5.0")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.10.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    testImplementation(Deps.junit)
+    testImplementation(Deps.testCore)
+    testImplementation(Deps.archCoreTesting)
+    testImplementation(Deps.kotlinCoroutinesTest)
+    testImplementation(Deps.truth)
+    testImplementation(Deps.mockk)
+    testImplementation(Deps.turbine)
+    implementation(Deps.uiTest)
 
-    // For instrumented tests.
-    androidTestImplementation("com.google.dagger:hilt-android-testing:2.48.1")
-    // ...with Kotlin.
-    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.48.1")
-    // ...with Java.
-    androidTestAnnotationProcessor("com.google.dagger:hilt-android-compiler:2.48.1")
+
+    androidTestImplementation(Deps.junitExt)
+    androidTestImplementation(Deps.testRunner)
+    androidTestImplementation(Deps.testRules)
+    androidTestImplementation(Deps.composeBomTest)
+    androidTestImplementation(Deps.uiTest)
+    debugImplementation(Deps.composeToolingTest)
+    debugImplementation(Deps.composeManifestTest)
+
+    androidTestImplementation(Deps.hiltAndroidTesting)
+    kaptAndroidTest(Deps.hiltAndroidCompilerTesting)
 
     //compose
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-    implementation("androidx.compose.material:material-icons-extended:1.5.4")
-
-    // Local unit tests
-    testImplementation ("androidx.test:core:1.5.0")
-    testImplementation ("junit:junit:4.13.2")
-    testImplementation ("androidx.arch.core:core-testing:2.2.0")
-    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
-    testImplementation ("com.google.truth:truth:1.1.5")
-    testImplementation ("io.mockk:mockk:1.13.7")
-    testImplementation ("app.cash.turbine:turbine:1.0.0")
-
-
+    implementation(Deps.composeViewModel)
+    implementation(Deps.materialIcons)
 
     //Hilt
-    implementation("com.google.dagger:hilt-android:2.48.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+    implementation(Deps.hiltAndroid)
+    kapt(Deps.hiltCompiler)
+    implementation(Deps.hiltNavigation)
 
     //Room
-    implementation("androidx.room:room-runtime:2.6.1")
-    ksp("androidx.room:room-compiler:2.6.1")
-    implementation("androidx.room:room-paging:2.6.1")
-
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
-
+    implementation(Deps.roomRuntime)
+    ksp(Deps.roomCompiler)
+    implementation(Deps.roomPaging)
     //Kotlin extensions
-    implementation("androidx.room:room-ktx:2.6.1")
+    implementation(Deps.roomKtx)
+
+    implementation(Deps.kotlinxSerialization)
 
     //Coil compose
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation(Deps.coil)
 
     //Paging
-    implementation("androidx.paging:paging-runtime-ktx:3.2.1")
-    implementation("androidx.paging:paging-compose:3.2.1")
+    implementation(Deps.pagingRuntime)
+    implementation(Deps.pagingCompose)
 
     //Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation(Deps.retrofit)
+    implementation(Deps.retrofitConverter)
+    implementation(Deps.loggingInterceptor)
 
     //Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.6")
+    implementation(Deps.composeNavigation)
+
+    //splash
+    implementation(Deps.splash)
 
 }
 
