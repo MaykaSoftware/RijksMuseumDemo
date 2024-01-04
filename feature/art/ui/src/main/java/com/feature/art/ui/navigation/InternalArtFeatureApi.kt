@@ -8,7 +8,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.core.common.navigation_constants.ArtFeature
+import com.core.common.constants.ArtFeature
+import com.core.common.constants.TopBarConstants
 import com.core.feature_api.FeatureApi
 import com.feature.art.ui.R
 import com.feature.art.ui.screen.art.ArtScreen
@@ -21,7 +22,7 @@ internal object InternalArtFeatureApi : FeatureApi {
         navController: androidx.navigation.NavHostController,
         navGraphBuilder: androidx.navigation.NavGraphBuilder,
         modifier: Modifier,
-        onTitleChanged: (String) -> Unit
+        onTitleChanged: (TopBarConstants, String) -> Unit
     ) {
         navGraphBuilder.navigation(
             startDestination = ArtFeature.artScreenRoute,
@@ -29,14 +30,14 @@ internal object InternalArtFeatureApi : FeatureApi {
         ) {
             composable(ArtFeature.artScreenRoute) {
                 val context = LocalContext.current
-                onTitleChanged(context.getString(R.string.title_topbar_art))
+                onTitleChanged(TopBarConstants.ART,context.getString(R.string.title_topbar_art))
                 val viewModel: ArtViewModel = hiltViewModel()
                 val artObjects = viewModel.artObjectFlow.collectAsLazyPagingItems()
                 ArtScreen(artObjects, navController, modifier)
             }
             composable(ArtFeature.artDetailScreenRoute) {
                 val context = LocalContext.current
-                onTitleChanged(context.getString(R.string.title_topbar_art_detail))
+                onTitleChanged(TopBarConstants.ART_DETAIL,context.getString(R.string.title_topbar_art_detail))
                 val viewModel: ArtDetailViewModel = hiltViewModel()
                 val state by viewModel.state.collectAsState()
                 ArtDetailsScreen(state, navController, modifier)

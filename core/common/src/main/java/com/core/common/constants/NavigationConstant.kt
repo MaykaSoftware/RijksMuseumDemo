@@ -1,4 +1,4 @@
-package com.core.common.navigation_constants
+package com.core.common.constants
 
 object OnboardingFeature {
     const val onboardingScreenRoute = "onboarding_screen_route"

@@ -19,9 +19,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.core.common.navigation_constants.ArtFeature
-import com.core.common.navigation_constants.HomeFeature
-import com.core.common.navigation_constants.SettingsFeature
+import com.core.common.constants.ArtFeature
+import com.core.common.constants.HomeFeature
+import com.core.common.constants.SettingsFeature
 import java.util.Locale
 
 enum class BottomTabs(
@@ -38,6 +38,17 @@ enum class BottomTabs(
         Icons.Outlined.Settings,
         SettingsFeature.settingsScreenRoute
     )
+}
+
+fun showBottomBar(currentRoute: String?): Boolean {
+    return when (currentRoute) {
+        BottomTabs.HOME.route,
+        BottomTabs.ART.route,
+        BottomTabs.SETTINGS.route,
+        -> true
+
+        else -> false
+    }
 }
 
 @Composable

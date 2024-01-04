@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="back_button">Back button</string>
+
+    <string name="topbar_profile">profile</string>
+    <string name="topbar_Share">Share</string>
+    <string name="topbar_Search">Search</string>
+    <string name="topbar_Save">Save</string>
+    <string name="topbar_Settings">Settings</string>
+    <string name="topbar_Favorites">Favorites</string>
 </resources>

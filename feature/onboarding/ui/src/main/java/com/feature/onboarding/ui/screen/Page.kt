@@ -1,4 +1,4 @@
-package nl.qbus.beleef.onboarding.presentation
+package com.feature.onboarding.ui.screen
 
 import androidx.annotation.DrawableRes
 import com.feature.onboarding.ui.R
@@ -9,7 +9,7 @@ data class Page(
     @DrawableRes val image: Int
 )
 
-val pages = listOf<Page>(
+val pages = listOf(
     Page(
         title = "Lorum Ipsum Dummy 1",
         description = "Lorum Ipsum Dummy more text to fit a description but it hasn't any value at all",
@@ -23,6 +23,6 @@ val pages = listOf<Page>(
     Page(
         title = "Lorum Ipsum Dummy 3",
         description = "Lorum Ipsum Dummy more text to fit a description but it hasn't any value at all",
-        image = R.drawable.page1
+        image = R.drawable.page3
     )
 )
