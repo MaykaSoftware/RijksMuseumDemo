@@ -20,8 +20,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.feature.onboarding.ui.Dimensions.mediumPadding1
 import com.feature.onboarding.ui.Dimensions.mediumPadding2
 import com.feature.onboarding.ui.R
-import nl.qbus.beleef.onboarding.presentation.Page
-import nl.qbus.beleef.onboarding.presentation.pages
 
 @Composable
 fun OnBoardingPage(

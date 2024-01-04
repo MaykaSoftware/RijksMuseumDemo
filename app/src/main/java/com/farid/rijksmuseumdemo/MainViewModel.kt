@@ -5,9 +5,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.core.common.navigation_constants.AuthenticationFeature
-import com.core.common.navigation_constants.HomeFeature
-import com.core.common.navigation_constants.OnboardingFeature
+import com.core.common.constants.AuthenticationFeature
+import com.core.common.constants.HomeFeature
+import com.core.common.constants.OnboardingFeature
 import com.feature.onboarding.domain.usecase.ReadAppEntryUseCase
 import com.feature.onboarding.domain.usecase.StartNavigation
 import dagger.hilt.android.lifecycle.HiltViewModel

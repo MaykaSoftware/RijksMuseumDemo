@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.core.common.constants.TopBarConstants
 
 @Composable
 fun AppNavGraph(
@@ -11,7 +12,7 @@ fun AppNavGraph(
     navController: NavHostController,
     navigationProvider: NavigationProvider,
     startDestination: String,
-    onTitleChanged: (String) -> Unit
+    onTitleChanged: (TopBarConstants, String) -> Unit
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
         navigationProvider.onboardingApi.registerGraph(

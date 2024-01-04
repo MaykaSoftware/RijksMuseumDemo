@@ -31,12 +31,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.core.common.navigation_constants.AuthenticationFeature
+import com.core.common.constants.AuthenticationFeature
 import com.feature.onboarding.ui.Dimensions.indicatorSize
 import com.feature.onboarding.ui.Dimensions.mediumPadding2
 import com.feature.onboarding.ui.Dimensions.pageIndicatorWidth
 import com.feature.onboarding.ui.OnBoardingEvent
-import nl.qbus.beleef.onboarding.presentation.pages
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

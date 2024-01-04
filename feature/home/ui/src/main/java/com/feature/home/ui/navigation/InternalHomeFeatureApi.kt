@@ -9,7 +9,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.core.common.navigation_constants.HomeFeature
+import com.core.common.constants.HomeFeature
+import com.core.common.constants.TopBarConstants
 import com.core.feature_api.FeatureApi
 import com.feature.home.ui.R
 import com.feature.home.ui.screen.HomeScreen
@@ -20,7 +21,7 @@ internal object InternalHomeFeatureApi : FeatureApi {
         navController: NavHostController,
         navGraphBuilder: NavGraphBuilder,
         modifier: Modifier,
-        onTitleChanged: (String) -> Unit
+        onTitleChanged: (TopBarConstants, String) -> Unit
     ) {
         navGraphBuilder.navigation(
             startDestination = HomeFeature.homeScreenRoute,
@@ -28,7 +29,7 @@ internal object InternalHomeFeatureApi : FeatureApi {
         ) {
             composable(HomeFeature.homeScreenRoute) {
                 val context = LocalContext.current
-                onTitleChanged(context.getString(R.string.title_topbar_home))
+                onTitleChanged(TopBarConstants.HOME, context.getString(R.string.title_topbar_home))
                 val viewModel: HomeViewModel = hiltViewModel()
                 val state by viewModel.state.collectAsState()
                 HomeScreen(state)

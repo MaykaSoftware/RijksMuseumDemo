@@ -3,6 +3,7 @@ package com.feature.art.ui.navigation
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
+import com.core.common.constants.TopBarConstants
 import com.core.feature_api.FeatureApi
 
 interface ArtApi : FeatureApi {
@@ -13,7 +14,7 @@ class ArtApiImpl : ArtApi {
         navController: NavHostController,
         navGraphBuilder: NavGraphBuilder,
         modifier: Modifier,
-        onTitleChanged: (String) -> Unit
+        onTitleChanged: (TopBarConstants, String) -> Unit
     ) {
         InternalArtFeatureApi.registerGraph(navController, navGraphBuilder, modifier, onTitleChanged)
     }

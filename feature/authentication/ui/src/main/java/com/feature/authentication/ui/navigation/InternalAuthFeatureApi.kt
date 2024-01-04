@@ -6,7 +6,8 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.core.common.navigation_constants.AuthenticationFeature
+import com.core.common.constants.AuthenticationFeature
+import com.core.common.constants.TopBarConstants
 import com.core.feature_api.FeatureApi
 import com.feature.authentication.ui.login.LoginScreen
 import com.feature.authentication.ui.login.LoginViewModel
@@ -18,14 +19,14 @@ internal object InternalAuthFeatureApi : FeatureApi {
         navController: androidx.navigation.NavHostController,
         navGraphBuilder: androidx.navigation.NavGraphBuilder,
         modifier: Modifier,
-        onTitleChanged: (String) -> Unit
+        onTitleChanged: (TopBarConstants, String) -> Unit
     ) {
         navGraphBuilder.navigation(
             startDestination = AuthenticationFeature.loginScreenRoute,
             route = AuthenticationFeature.nestedAuthenticationRoute
         ) {
             composable(AuthenticationFeature.loginScreenRoute) {
-                onTitleChanged("")
+                onTitleChanged(TopBarConstants.NONE, "")
                 val viewModel: LoginViewModel = hiltViewModel()
                 val state by viewModel.uiState.collectAsState()
                 LoginScreen(
@@ -33,7 +34,7 @@ internal object InternalAuthFeatureApi : FeatureApi {
                 )
             }
             composable(AuthenticationFeature.registerScreenRoute) {
-                onTitleChanged("")
+                onTitleChanged(TopBarConstants.NONE, "")
                 val viewModel: RegisterViewModel = hiltViewModel()
                 val state by viewModel.uiState.collectAsState()
                 RegisterScreen(modifier, navController, state, viewModel::onEvent)

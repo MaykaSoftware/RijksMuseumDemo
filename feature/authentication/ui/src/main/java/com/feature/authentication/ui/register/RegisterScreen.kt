@@ -25,7 +25,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.core.common.navigation_constants.HomeFeature
+import com.core.common.constants.HomeFeature
 import com.feature.authentication.ui.CustomTextField
 import com.feature.authentication.ui.Dimensions.ButtonHeight
 import com.feature.authentication.ui.Dimensions.ExtraLargeSpacing
