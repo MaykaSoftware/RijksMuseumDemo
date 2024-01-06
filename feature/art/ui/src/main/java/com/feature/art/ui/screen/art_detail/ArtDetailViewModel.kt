@@ -3,10 +3,10 @@ package com.feature.art.ui.screen.art_detail
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.core.common.model.art_detail.ArtObjectDetail
 import com.feature.art.domain.use_cases.ArtDetailUseCase
 import com.feature.art.domain.use_cases.ERROR
 import com.feature.art.domain.use_cases.Resource
-import com.feature.common.domain.model.art_detail.ArtObjectDetail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

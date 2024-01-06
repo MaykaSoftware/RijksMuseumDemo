@@ -3,12 +3,12 @@ package com.feature.art.data.di
 import androidx.paging.Pager
 import com.core.cache.dataSource.dao.ArtObjectDao
 import com.core.cache.dataSource.dao.RemoteKeysDao
+import com.core.common.entity.art.ArtObjectEntity
 import com.core.network.dataSource.ArtDataSource
 import com.feature.art.data.dataSource.local.ArtObjectDaoImpl
 import com.feature.art.data.dataSource.local.RemoteKeysDaoImpl
 import com.feature.art.data.repo.ArtRepository
 import com.feature.art.data.repo.ArtRepositoryImpl
-import com.feature.common.domain.entity.art.ArtObjectEntity
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

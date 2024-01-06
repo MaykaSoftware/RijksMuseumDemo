@@ -6,6 +6,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.insertSeparators
 import androidx.paging.map
+import com.core.common.model.art.ArtObject
 import com.feature.art.domain.use_cases.ArtUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -23,7 +24,7 @@ class ArtViewModel @Inject constructor(
         insertSeparators(it)
     }
 
-    private fun mapToUiModels(pagingData: PagingData<com.feature.common.domain.model.art.ArtObject>): PagingData<ListArtObjectUiState.ArtObjectItem> =
+    private fun mapToUiModels(pagingData: PagingData<ArtObject>): PagingData<ListArtObjectUiState.ArtObjectItem> =
         pagingData.map { artObject ->
             ListArtObjectUiState.ArtObjectItem(artObject)
         }

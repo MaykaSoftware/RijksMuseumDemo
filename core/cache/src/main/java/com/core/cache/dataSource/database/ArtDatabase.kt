@@ -7,10 +7,10 @@ import com.core.cache.dataSource.dao.ArtDetailDao
 import com.core.cache.dataSource.dao.ArtObjectDao
 import com.core.cache.dataSource.dao.RemoteKeysDao
 import com.core.cache.dataSource.dao.UserDao
-import com.feature.common.domain.entity.art.ArtObjectEntity
-import com.feature.common.domain.entity.art.RemoteKeysEntity
-import com.feature.common.domain.entity.art_detail.ArtObjectDetailEntity
-import com.feature.common.domain.entity.auth.UserEntity
+import com.core.common.entity.art.ArtObjectEntity
+import com.core.common.entity.art.RemoteKeysEntity
+import com.core.common.entity.art_detail.ArtObjectDetailEntity
+import com.core.common.entity.auth.UserEntity
 
 @Database(
     entities = [ArtObjectEntity::class, RemoteKeysEntity::class, ArtObjectDetailEntity::class, UserEntity::class],

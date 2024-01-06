@@ -1,7 +1,7 @@
 package com.feature.authentication.domain.use_cases
 
+import com.core.common.model.auth.User
 import com.feature.authentication.data.repository.AuthRepository
-import com.feature.common.domain.model.auth.User
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

@@ -2,8 +2,6 @@ package com.core.network
 
 
 
-import com.feature.common.domain.dto.detail.ArtDetailResponse
-import com.feature.common.domain.dto.home.ArtResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -17,13 +15,13 @@ interface ArtObjectApi {
         @Query("ps") pageCount: Int,
         @Query("s") artist: String = "artist",
         @Query("imgonly") hasImage: Boolean = true
-    ): ArtResponse
+    ): com.core.common.dto.home.ArtResponse
 
     @GET("{culture}/collection/{object-number}")
     suspend fun getMuseumObject(
         @Path("culture") language: String,
         @Path("object-number") objectNumber: String
-    ): ArtDetailResponse
+    ): com.core.common.dto.detail.ArtDetailResponse
 
     companion object {
         const val BASE_URL = "https://www.rijksmuseum.nl/api/"

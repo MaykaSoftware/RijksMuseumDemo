@@ -2,9 +2,9 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     kotlin("plugin.serialization") version "1.9.21"
-    kotlin("kapt")
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
+    kotlin("kapt")
 }
 
 android {
@@ -37,43 +37,31 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:onboarding:data"))
-    implementation(project(":feature:authentication:data"))
-    testImplementation(Deps.junit)
-    testImplementation(Deps.testCore)
-    testImplementation(Deps.archCoreTesting)
-    testImplementation(Deps.kotlinCoroutinesTest)
-    testImplementation(Deps.truth)
-    testImplementation(Deps.mockk)
-    testImplementation(Deps.turbine)
+    implementation(projects.feature.onboarding.data)
+    implementation(projects.feature.authentication.data)
+
+    testImplementation(libs.androidx.junit)
+    testImplementation(libs.androidx.test.core)
+    testImplementation(libs.androidx.archCoreTesting)
+    testImplementation(libs.jetbrains.kotlinCoroutinesTest)
+    testImplementation(libs.google.truth)
+    testImplementation(libs.io.mockk)
+    testImplementation(libs.cash.turbine)
 
 
-    androidTestImplementation(Deps.junitExt)
-    androidTestImplementation(Deps.testRunner)
-    androidTestImplementation(Deps.testRules)
-    androidTestImplementation(Deps.composeBomTest)
-    androidTestImplementation(Deps.uiTest)
-    debugImplementation(Deps.composeToolingTest)
-    debugImplementation(Deps.composeManifestTest)
+    androidTestImplementation(libs.androidx.junit.ext)
+    androidTestImplementation(libs.androidx.runner)
+    androidTestImplementation(libs.androidx.rules)
 
-    androidTestImplementation(Deps.hiltAndroidTesting)
-    kaptAndroidTest(Deps.hiltAndroidCompilerTesting)
+    androidTestImplementation(libs.hilt.android.testing)
+    kaptAndroidTest(libs.hilt.android.compiler)
 
-    implementation(Deps.core)
-    implementation(Deps.lifecycle)
-    implementation(Deps.activityCompose)
-    implementation(Deps.composeBom)
-    implementation(Deps.composeUI)
-    implementation(Deps.composeGraphics)
-    implementation(Deps.composeTooling)
-    implementation(Deps.material3)
+    implementation(libs.androidx.core.ktx)
 
     //Hilt
-    implementation(Deps.hiltAndroid)
-    kapt(Deps.hiltCompiler)
-    implementation(Deps.hiltNavigation)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.hilt.navigation.compose)
 
-    implementation(Deps.kotlinxSerialization)
-
-    implementation(Deps.datastore)
+    implementation(libs.datastore.preferences)
 }

@@ -1,8 +1,8 @@
 package com.feature.art.data.repo
 
 import androidx.paging.PagingData
-import com.feature.common.domain.model.art.ArtObject
-import com.feature.common.domain.model.art_detail.ArtObjectDetail
+import com.core.common.model.art.ArtObject
+import com.core.common.model.art_detail.ArtObjectDetail
 import kotlinx.coroutines.flow.Flow
 
 interface ArtRepository {

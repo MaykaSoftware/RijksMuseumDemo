@@ -5,7 +5,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import com.core.cache.dataSource.dao.UserDao
 import com.core.cache.di.PreferencesKeys
-import com.feature.common.domain.entity.auth.UserEntity
+import com.core.common.entity.auth.UserEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

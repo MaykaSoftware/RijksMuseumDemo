@@ -2,9 +2,9 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     kotlin("plugin.serialization") version "1.9.21"
-    kotlin("kapt")
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
+    kotlin("kapt")
 }
 
 android {
@@ -37,27 +37,26 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:common:domain"))
+    implementation(projects.core.common)
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    testImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.junit.ext)
+    androidTestImplementation(libs.androidx.espresso)
 
     //Room
-    implementation(Deps.roomRuntime)
-    ksp(Deps.roomCompiler)
-    implementation(Deps.roomPaging)
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+    implementation(libs.room.paging)
     //Kotlin extensions
-    implementation(Deps.roomKtx)
+    implementation(libs.room.ktx)
 
     //Hilt
-    implementation(Deps.hiltAndroid)
-    kapt(Deps.hiltCompiler)
-    implementation(Deps.hiltNavigation)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.hilt.navigation.compose)
 
-    implementation(Deps.kotlinxSerialization)
-    implementation(Deps.datastore)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.datastore.preferences)
 }
