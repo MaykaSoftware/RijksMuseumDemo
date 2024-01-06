@@ -1,8 +1,8 @@
 [versions]
 ksp-plugin = "1.9.21-1.0.16"
 kotlin = "1.9.21"
+kotlinxSerializationPlugin = "1.9.21"
 androidGradlePlugin = "8.2.0"
-compose-jetbrains = "1.5.0"
 
 ktx = "1.12.0"
 lifecycle = "2.6.2"
@@ -35,6 +35,8 @@ datastore = "1.0.0"
 splash = "1.0.1"
 appcompat = "1.6.1"
 espresso = "3.5.1"
+
+kotlinCompilerExtensionVersion = "1.5.6"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
@@ -103,5 +105,5 @@ android-application = { id = "com.android.application", version.ref = "androidGr
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin"}
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-plugin"}
-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinxSerializationPlugin" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin"}

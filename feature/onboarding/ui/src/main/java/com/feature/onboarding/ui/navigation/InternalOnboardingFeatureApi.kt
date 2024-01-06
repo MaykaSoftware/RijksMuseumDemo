@@ -18,7 +18,6 @@ internal object InternalOnboardingFeatureApi : FeatureApi {
         onTitleChanged: (TopBarConstants, String) -> Unit
     ) {
         navGraphBuilder.composable(OnboardingFeature.onboardingScreenRoute) {
-            onTitleChanged(TopBarConstants.NONE, "")
             val viewModel: OnBoardingViewModel = hiltViewModel()
             OnBoardingScreen(
                 modifier = Modifier.fillMaxSize(),
