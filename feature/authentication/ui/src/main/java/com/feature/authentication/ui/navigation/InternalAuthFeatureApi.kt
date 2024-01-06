@@ -26,7 +26,6 @@ internal object InternalAuthFeatureApi : FeatureApi {
             route = AuthenticationFeature.nestedAuthenticationRoute
         ) {
             composable(AuthenticationFeature.loginScreenRoute) {
-                onTitleChanged(TopBarConstants.NONE, "")
                 val viewModel: LoginViewModel = hiltViewModel()
                 val state by viewModel.uiState.collectAsState()
                 LoginScreen(
@@ -34,7 +33,6 @@ internal object InternalAuthFeatureApi : FeatureApi {
                 )
             }
             composable(AuthenticationFeature.registerScreenRoute) {
-                onTitleChanged(TopBarConstants.NONE, "")
                 val viewModel: RegisterViewModel = hiltViewModel()
                 val state by viewModel.uiState.collectAsState()
                 RegisterScreen(modifier, navController, state, viewModel::onEvent)
