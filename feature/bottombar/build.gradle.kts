@@ -45,40 +45,40 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:common"))
+    implementation(projects.core.common)
 
-    testImplementation(Deps.junit)
-    testImplementation(Deps.testCore)
-    testImplementation(Deps.archCoreTesting)
-    testImplementation(Deps.kotlinCoroutinesTest)
-    testImplementation(Deps.truth)
-    testImplementation(Deps.mockk)
-    testImplementation(Deps.turbine)
+    testImplementation(libs.androidx.junit)
+    testImplementation(libs.androidx.test.core)
+    testImplementation(libs.androidx.archCoreTesting)
+    testImplementation(libs.jetbrains.kotlinCoroutinesTest)
+    testImplementation(libs.google.truth)
+    testImplementation(libs.io.mockk)
+    testImplementation(libs.cash.turbine)
 
 
-    androidTestImplementation(Deps.junitExt)
-    androidTestImplementation(Deps.testRunner)
-    androidTestImplementation(Deps.testRules)
-    androidTestImplementation(Deps.composeBomTest)
-    androidTestImplementation(Deps.uiTest)
-    debugImplementation(Deps.composeToolingTest)
-    debugImplementation(Deps.composeManifestTest)
+    androidTestImplementation(libs.androidx.junit.ext)
+    androidTestImplementation(libs.androidx.runner)
+    androidTestImplementation(libs.androidx.rules)
+    androidTestImplementation(libs.androidx.compose.bom)
+    androidTestImplementation(libs.androidx.compose.test.junit4)
+    debugImplementation(libs.androidx.compose.tooling)
+    debugImplementation(libs.androidx.compose.test.manifest)
 
-    androidTestImplementation(Deps.hiltAndroidTesting)
-    kaptAndroidTest(Deps.hiltAndroidCompilerTesting)
+    androidTestImplementation(libs.hilt.android.testing)
+    kaptAndroidTest(libs.hilt.android.compiler)
 
-    implementation(Deps.core)
-    implementation(Deps.lifecycle)
-    implementation(Deps.activityCompose)
-    implementation(Deps.composeBom)
-    implementation(Deps.composeUI)
-    implementation(Deps.composeGraphics)
-    implementation(Deps.composeTooling)
-    implementation(Deps.material3)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.lifecycle.runtime.ktx )
+    implementation(libs.activity.compose)
+    implementation(libs.androidx.compose.bom)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.graphics)
+    implementation(libs.androidx.compose.tooling.preview)
+    implementation(libs.androidx.compose.material3)
 
     //compose
-    implementation(Deps.composeViewModel)
-    implementation(Deps.materialIcons)
+    implementation(libs.lifecycle.viewmodel.compose)
+    implementation(libs.material.icons.extended)
     //Navigation
-    implementation(Deps.composeNavigation)
+    implementation(libs.navigation.compose)
 }

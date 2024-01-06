@@ -1,18 +1,16 @@
 package com.feature.authentication.data.datasource
 
+import com.core.common.request.LoginRequest
+import com.core.common.request.RegisterRequest
 import com.core.network.DummyAuthService
-import com.feature.common.domain.dto.auth.LoginDTO
-import com.feature.common.domain.request.LoginRequest
-import com.feature.common.domain.request.RegisterRequest
 import javax.inject.Inject
 
 class AuthRemoteDataSource @Inject constructor(
     private val dummyAuthService: DummyAuthService
-) {
-    suspend fun register(register: RegisterRequest): Result<LoginDTO> {
+) { fun register(register: RegisterRequest): Result<com.core.common.dto.auth.LoginDTO> {
         return dummyAuthService.register(register)
     }
-    suspend fun login(login: LoginRequest): Result<LoginDTO> {
+    fun login(login: LoginRequest): Result<com.core.common.dto.auth.LoginDTO> {
         return dummyAuthService.login(login)
     }
 }

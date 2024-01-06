@@ -2,7 +2,7 @@ package com.feature.art.data.dataSource.local
 
 import com.core.cache.dataSource.dao.RemoteKeysDao
 import com.core.cache.dataSource.database.ArtDatabase
-import com.feature.common.domain.entity.art.RemoteKeysEntity
+import com.core.common.entity.art.RemoteKeysEntity
 import javax.inject.Inject
 
 class RemoteKeysDaoImpl @Inject constructor(private val database: ArtDatabase) : RemoteKeysDao {

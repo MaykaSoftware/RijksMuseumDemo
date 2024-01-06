@@ -1,9 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-include(":feature:topbar")
-
-
-
 pluginManagement {
     repositories {
         google()
@@ -20,16 +16,18 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "RijksMuseumDemo"
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 include(":core:network")
 include(":core:common")
 include(":core:feature_api")
 include(":core:cache")
-include(":feature:common:domain")
 include(":feature:art:data")
 include(":feature:art:domain")
 include(":feature:art:ui")
 include(":feature:bottombar")
+include(":feature:topbar")
 include(":feature:settings:data")
 include(":feature:settings:domain")
 include(":feature:settings:ui")

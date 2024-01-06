@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.feature.common.domain.model.art_detail.ArtObjectDetail
+import com.core.common.model.art_detail.ArtObjectDetail
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -4,6 +4,7 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import com.core.cache.dataSource.database.ArtDatabase
+import com.core.common.entity.art.ArtObjectEntity
 import com.core.network.dataSource.ArtDataSource
 import com.feature.art.data.dataSource.local.ArtObjectDaoImpl
 import com.feature.art.data.dataSource.local.RemoteKeysDaoImpl
@@ -25,7 +26,7 @@ object PagerModule {
         artObjectDaoImpl: ArtObjectDaoImpl,
         remoteKeysDaoImpl: RemoteKeysDaoImpl,
         artObjectApi: ArtDataSource
-    ): Pager<Int, com.feature.common.domain.entity.art.ArtObjectEntity> {
+    ): Pager<Int, ArtObjectEntity> {
         return Pager(
             config = PagingConfig(
                 pageSize = 10

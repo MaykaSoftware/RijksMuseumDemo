@@ -37,28 +37,17 @@ android {
 
 dependencies {
 
-    testImplementation(Deps.junit)
-    androidTestImplementation(Deps.junitExt)
+    testImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.junit.ext)
 
+    implementation(libs.androidx.core.ktx)
 
-    androidTestImplementation(Deps.hiltAndroidTesting)
-    kaptAndroidTest(Deps.hiltAndroidCompilerTesting)
-
-    implementation(Deps.core)
-    implementation(Deps.lifecycle)
-    implementation(Deps.activityCompose)
-    implementation(Deps.composeBom)
-    implementation(Deps.composeUI)
-    implementation(Deps.composeGraphics)
-    implementation(Deps.composeTooling)
-    implementation(Deps.material3)
+    implementation(libs.kotlinx.serialization.json)
 
     //Room
-    implementation(Deps.roomRuntime)
-    ksp(Deps.roomCompiler)
-    implementation(Deps.roomPaging)
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+    implementation(libs.room.paging)
     //Kotlin extensions
-    implementation(Deps.roomKtx)
-
-    implementation(Deps.kotlinxSerialization)
+    implementation(libs.room.ktx)
 }

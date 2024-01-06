@@ -1,6 +1,6 @@
 package com.feature.authentication.domain.use_cases
 
-import com.feature.common.domain.model.auth.User
+import com.core.common.model.auth.User
 
 sealed class AuthenticationResult {
     data class Success(val user: User): AuthenticationResult()
@@ -8,7 +8,6 @@ sealed class AuthenticationResult {
     data class ErrorField(val errorFields: ErrorFields): AuthenticationResult()
 }
 enum class ErrorFields {
-    NONE,
     EMAIL,
     USERNAME,
     PASSWORD,

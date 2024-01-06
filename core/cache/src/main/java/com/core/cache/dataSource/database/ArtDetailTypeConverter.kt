@@ -1,17 +1,18 @@
 package com.core.cache.dataSource.database
 
 import androidx.room.TypeConverter
+import com.core.common.entity.art_detail.WebImageDetailEntity
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 class ArtDetailTypeConverter {
     @TypeConverter
-    fun convertWebImageEntityToJsonString(webImageDetailEntity: com.feature.common.domain.entity.art_detail.WebImageDetailEntity?): String =
+    fun convertWebImageEntityToJsonString(webImageDetailEntity: WebImageDetailEntity?): String =
         Json.encodeToString(webImageDetailEntity)
 
 
     @TypeConverter
-    fun convertWebImageEntityToObject(json: String): com.feature.common.domain.entity.art_detail.WebImageDetailEntity? =
+    fun convertWebImageEntityToObject(json: String): WebImageDetailEntity? =
         Json.decodeFromString(json)
 
 

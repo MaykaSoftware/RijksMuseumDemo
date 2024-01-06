@@ -1,10 +1,10 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
     kotlin("plugin.serialization") version "1.9.21"
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
+    kotlin("kapt")
 }
 
 android {
@@ -55,97 +55,97 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:common"))
-    implementation(project(":core:feature_api"))
-    implementation(project(":feature:bottombar"))
-    implementation(project(":feature:topbar"))
+    implementation(projects.core.common)
+    implementation(projects.core.featureApi)
+    implementation(projects.feature.bottombar)
+    implementation(projects.feature.topbar)
 
-    implementation(project(":feature:onboarding:data"))
-    implementation(project(":feature:onboarding:domain"))
-    implementation(project(":feature:onboarding:ui"))
+    val composeBom = platform(libs.androidx.compose.bom)
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
 
-    implementation(project(":feature:authentication:data"))
-    implementation(project(":feature:authentication:domain"))
-    implementation(project(":feature:authentication:ui"))
+    implementation(projects.feature.onboarding.data)
+    implementation(projects.feature.onboarding.domain)
+    implementation(projects.feature.onboarding.ui)
 
-    implementation(project(":feature:home:data"))
-    implementation(project(":feature:home:domain"))
-    implementation(project(":feature:home:ui"))
+    implementation(projects.feature.authentication.data)
+    implementation(projects.feature.authentication.domain)
+    implementation(projects.feature.authentication.ui)
 
-    implementation(project(":feature:art:data"))
-    implementation(project(":feature:art:domain"))
-    implementation(project(":feature:art:ui"))
+    implementation(projects.feature.home.data)
+    implementation(projects.feature.home.domain)
+    implementation(projects.feature.home.ui)
 
-    implementation(project(":feature:settings:data"))
-    implementation(project(":feature:settings:domain"))
-    implementation(project(":feature:settings:ui"))
+    implementation(projects.feature.art.data)
+    implementation(projects.feature.art.domain)
+    implementation(projects.feature.art.ui)
 
-    implementation(Deps.core)
-    implementation(Deps.lifecycle)
-    implementation(Deps.activityCompose)
-    implementation(Deps.composeBom)
-    implementation(Deps.composeUI)
-    implementation(Deps.composeGraphics)
-    implementation(Deps.composeTooling)
-    implementation(Deps.material3)
+    implementation(projects.feature.settings.data)
+    implementation(projects.feature.settings.domain)
+    implementation(projects.feature.settings.ui)
 
+    testImplementation(libs.androidx.junit)
+    testImplementation(libs.androidx.test.core)
+    testImplementation(libs.androidx.archCoreTesting)
+    testImplementation(libs.jetbrains.kotlinCoroutinesTest)
+    testImplementation(libs.google.truth)
+    testImplementation(libs.io.mockk)
+    testImplementation(libs.cash.turbine)
+    implementation(libs.androidx.compose.test.junit4)
 
-    testImplementation(Deps.junit)
-    testImplementation(Deps.testCore)
-    testImplementation(Deps.archCoreTesting)
-    testImplementation(Deps.kotlinCoroutinesTest)
-    testImplementation(Deps.truth)
-    testImplementation(Deps.mockk)
-    testImplementation(Deps.turbine)
-    implementation(Deps.uiTest)
+    androidTestImplementation(libs.androidx.junit.ext)
+    androidTestImplementation(libs.androidx.runner)
+    androidTestImplementation(libs.androidx.rules)
+    androidTestImplementation(libs.androidx.compose.test.junit4)
+    debugImplementation(libs.androidx.compose.tooling)
+    debugImplementation(libs.androidx.compose.test.manifest)
 
+    androidTestImplementation(libs.hilt.android.testing)
+    kaptAndroidTest(libs.hilt.android.compiler)
 
-    androidTestImplementation(Deps.junitExt)
-    androidTestImplementation(Deps.testRunner)
-    androidTestImplementation(Deps.testRules)
-    androidTestImplementation(Deps.composeBomTest)
-    androidTestImplementation(Deps.uiTest)
-    debugImplementation(Deps.composeToolingTest)
-    debugImplementation(Deps.composeManifestTest)
-
-    androidTestImplementation(Deps.hiltAndroidTesting)
-    kaptAndroidTest(Deps.hiltAndroidCompilerTesting)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.lifecycle.runtime.ktx )
+    implementation(libs.activity.compose)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.graphics)
+    implementation(libs.androidx.compose.tooling.preview)
+    implementation(libs.androidx.compose.material3)
 
     //compose
-    implementation(Deps.composeViewModel)
-    implementation(Deps.materialIcons)
+    implementation(libs.lifecycle.viewmodel.compose)
+    implementation(libs.material.icons.extended)
 
     //Hilt
-    implementation(Deps.hiltAndroid)
-    kapt(Deps.hiltCompiler)
-    implementation(Deps.hiltNavigation)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.hilt.navigation.compose)
 
     //Room
-    implementation(Deps.roomRuntime)
-    ksp(Deps.roomCompiler)
-    implementation(Deps.roomPaging)
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+    implementation(libs.room.paging)
     //Kotlin extensions
-    implementation(Deps.roomKtx)
+    implementation(libs.room.ktx)
 
-    implementation(Deps.kotlinxSerialization)
+    implementation(libs.kotlinx.serialization.json)
 
     //Coil compose
-    implementation(Deps.coil)
+    implementation(libs.coil.compose)
 
     //Paging
-    implementation(Deps.pagingRuntime)
-    implementation(Deps.pagingCompose)
+    implementation(libs.paging.runtime.ktx)
+    implementation(libs.paging.compose)
 
     //Retrofit
-    implementation(Deps.retrofit)
-    implementation(Deps.retrofitConverter)
-    implementation(Deps.loggingInterceptor)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter)
+    implementation(libs.okhttp3.logging.interceptor)
 
     //Navigation
-    implementation(Deps.composeNavigation)
+    implementation(libs.navigation.compose)
 
     //splash
-    implementation(Deps.splash)
+    implementation(libs.splashscreen)
 
 }
 

@@ -6,10 +6,12 @@ import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.core.cache.dataSource.database.ArtDatabase
+import com.core.common.entity.art.ArtObjectEntity
+import com.core.common.entity.art.RemoteKeysEntity
+import com.core.common.mapper.toArtObjectEntity
 import com.core.network.dataSource.ArtDataSource
 import com.feature.art.data.dataSource.local.ArtObjectDaoImpl
 import com.feature.art.data.dataSource.local.RemoteKeysDaoImpl
-import com.feature.common.domain.mapper.toArtObjectEntity
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
@@ -22,11 +24,11 @@ class ArtObjectRemoteMediator @Inject constructor(
     private val artObjectDaoImpl: ArtObjectDaoImpl,
     private val remoteKeysDaoImpl: RemoteKeysDaoImpl,
     private val artDataSource: ArtDataSource
-) : RemoteMediator<Int, com.feature.common.domain.entity.art.ArtObjectEntity>() {
+) : RemoteMediator<Int, ArtObjectEntity>() {
 
     override suspend fun load(
         loadType: LoadType,
-        state: PagingState<Int, com.feature.common.domain.entity.art.ArtObjectEntity>
+        state: PagingState<Int, ArtObjectEntity>
     ): MediatorResult {
         val page: Int = when (loadType) {
             LoadType.REFRESH -> {
@@ -69,7 +71,7 @@ class ArtObjectRemoteMediator @Inject constructor(
                 val prevKey = if (page > 1) page - 1 else null
                 val nextKey = if (endOfPaginationReached) null else page + 1
                 val remoteKeys = artObjects.map {
-                    com.feature.common.domain.entity.art.RemoteKeysEntity(
+                    RemoteKeysEntity(
                         artObjectID = it.id,
                         prevKey = prevKey,
                         currentPage = page,
@@ -90,7 +92,7 @@ class ArtObjectRemoteMediator @Inject constructor(
     }
 
 
-    private suspend fun getRemoteKeyClosestToCurrentPosition(state: PagingState<Int, com.feature.common.domain.entity.art.ArtObjectEntity>): com.feature.common.domain.entity.art.RemoteKeysEntity? {
+    private suspend fun getRemoteKeyClosestToCurrentPosition(state: PagingState<Int, ArtObjectEntity>): RemoteKeysEntity? {
         return state.anchorPosition?.let { position ->
             state.closestItemToPosition(position)?.id?.let { id ->
                 remoteKeysDaoImpl.getRemoteKeyByArtObjectID(id)
@@ -98,7 +100,7 @@ class ArtObjectRemoteMediator @Inject constructor(
         }
     }
 
-    private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, com.feature.common.domain.entity.art.ArtObjectEntity>): com.feature.common.domain.entity.art.RemoteKeysEntity? {
+    private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, ArtObjectEntity>): RemoteKeysEntity? {
         return state.pages.firstOrNull {
             it.data.isNotEmpty()
         }?.data?.firstOrNull()?.let { movie ->
@@ -106,7 +108,7 @@ class ArtObjectRemoteMediator @Inject constructor(
         }
     }
 
-    private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, com.feature.common.domain.entity.art.ArtObjectEntity>): com.feature.common.domain.entity.art.RemoteKeysEntity? {
+    private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, ArtObjectEntity>): RemoteKeysEntity? {
         return state.pages.lastOrNull {
             it.data.isNotEmpty()
         }?.data?.lastOrNull()?.let { movie ->

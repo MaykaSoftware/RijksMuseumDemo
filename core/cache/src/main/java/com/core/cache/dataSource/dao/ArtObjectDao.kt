@@ -6,17 +6,18 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Upsert
-import com.feature.common.domain.entity.art_detail.ArtObjectDetailEntity
+import com.core.common.entity.art.ArtObjectEntity
+import com.core.common.entity.art_detail.ArtObjectDetailEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ArtObjectDao {
 
     @Upsert
-    suspend fun upsertAll(artObjectEntity: List<com.feature.common.domain.entity.art.ArtObjectEntity>)
+    suspend fun upsertAll(artObjectEntity: List<ArtObjectEntity>)
 
     @Query("SELECT * FROM art_object")
-    fun pagingSource(): PagingSource<Int, com.feature.common.domain.entity.art.ArtObjectEntity>
+    fun pagingSource(): PagingSource<Int, ArtObjectEntity>
 
     @Query("DELETE  FROM art_object")
     fun deleteAll()
@@ -25,8 +26,8 @@ interface ArtObjectDao {
     fun getArtObjectFlowById(objectNumber: String): Flow<ArtObjectDetailEntity>
 
     @Query("SELECT * FROM art_detail_object WHERE objectNumber = :objectNumber")
-    suspend fun getArtObjectById(objectNumber: String): com.feature.common.domain.entity.art_detail.ArtObjectDetailEntity?
+    suspend fun getArtObjectById(objectNumber: String): ArtObjectDetailEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertArtObject(artObjectEntity: com.feature.common.domain.entity.art_detail.ArtObjectDetailEntity)
+    suspend fun insertArtObject(artObjectEntity: ArtObjectDetailEntity)
 }

@@ -3,8 +3,8 @@ package com.feature.art.data.dataSource.local
 import androidx.paging.PagingSource
 import com.core.cache.dataSource.dao.ArtObjectDao
 import com.core.cache.dataSource.database.ArtDatabase
-import com.feature.common.domain.entity.art.ArtObjectEntity
-import com.feature.common.domain.entity.art_detail.ArtObjectDetailEntity
+import com.core.common.entity.art.ArtObjectEntity
+import com.core.common.entity.art_detail.ArtObjectDetailEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
