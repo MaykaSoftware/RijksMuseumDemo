@@ -23,7 +23,7 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import com.feature.authentication.ui.login.ErrorFields
+import com.feature.authentication.domain.use_cases.ErrorFields
 
 @Composable
 fun CustomTextField(

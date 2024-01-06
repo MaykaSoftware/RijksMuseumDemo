@@ -11,9 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.core.theme.RijksMuseumDemoTheme
 import com.farid.rijksmuseumdemo.navigation.NavigationProvider
 import com.farid.rijksmuseumdemo.presentation.RijksMuseumDemoApp
-import com.farid.rijksmuseumdemo.ui.theme.RijksMuseumDemoTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

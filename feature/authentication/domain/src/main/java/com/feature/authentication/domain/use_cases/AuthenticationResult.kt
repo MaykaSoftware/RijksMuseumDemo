@@ -8,6 +8,7 @@ sealed class AuthenticationResult {
     data class ErrorField(val errorFields: ErrorFields): AuthenticationResult()
 }
 enum class ErrorFields {
+    NONE,
     EMAIL,
     USERNAME,
     PASSWORD,
