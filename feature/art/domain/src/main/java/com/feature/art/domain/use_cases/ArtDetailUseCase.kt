@@ -13,11 +13,6 @@ class ArtDetailUseCase @Inject constructor(
     private val artRepository: ArtRepository
 ) {
 
-    /**
-     * A flow from the database is not necessary for this use case. This function is a better
-     * choice then
-     * **/
-
     suspend operator fun invoke(objectNumber: String): Flow<Resource> = flow {
         if (objectNumber.isNotEmpty()) {
             emit(Resource.Loading)

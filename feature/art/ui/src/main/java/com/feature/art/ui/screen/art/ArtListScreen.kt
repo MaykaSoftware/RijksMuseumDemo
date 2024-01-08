@@ -40,17 +40,15 @@ enum class MyListContentType { Header, Cell }
 @Composable
 fun ArtScreen(
     artObjects: LazyPagingItems<ListArtObjectUiState>,
-    navController: NavController,
-    modifier: Modifier = Modifier
+    navController: NavController
 ) {
-    ArtListScreen(artObjects = artObjects, navController, modifier)
+    ArtListScreen(artObjects = artObjects, navController)
 }
 
 @Composable
 fun ArtListScreen(
     artObjects: LazyPagingItems<ListArtObjectUiState>,
-    navController: NavController,
-    modifier: Modifier
+    navController: NavController
 ) {
 
     LazyColumn(modifier = Modifier.fillMaxSize()) {
@@ -95,9 +93,7 @@ fun ArtListScreen(
                     )
                 }
 
-                null -> {
-
-                }
+                null -> {}
             }
 
         }
@@ -143,6 +139,7 @@ fun ArtListScreen(
 
 @Composable
 private fun ArtObjectHeader(author: String) {
+    //TODO("Beautify")
     Row(Modifier.fillMaxWidth()) {
         Text(
             text = author,

@@ -31,9 +31,6 @@ class ArtRepositoryImpl @Inject constructor(
             throw it
         }
 
-    /**
-     * Using Arrow of Result Kotlin class here would be a better choice for handling requests
-     * **/
     override suspend fun getArtObjectFlow(objectNumber: String): Flow<ArtObjectDetail> {
         val result = artDataSource.getMuseumObject("nl", objectNumber)
         artObjectDaoImpl.insertArtObject(result.toArtDetailEntity().artObject)

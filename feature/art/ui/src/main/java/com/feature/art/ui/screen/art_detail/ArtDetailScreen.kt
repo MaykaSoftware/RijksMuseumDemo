@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,12 +22,10 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.core.common.model.art_detail.ArtObjectDetail
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ArtDetailsScreen(
     state: State,
-    navController: NavController,
-    modifier: Modifier = Modifier
+    navController: NavController //always use inline functions instead of this was ex: onNavigateBack: () -> Unit
 ) {
     Box(
         modifier = Modifier.fillMaxSize(),
@@ -51,10 +48,7 @@ fun ArtDetailsScreen(
                 }
             }
         }
-
     }
-
-
 }
 
 @Composable
