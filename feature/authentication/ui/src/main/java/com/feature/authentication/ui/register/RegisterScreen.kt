@@ -1,6 +1,5 @@
 package com.feature.authentication.ui.register
 
-import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
@@ -12,41 +11,61 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import com.core.common.constants.HomeFeature
-import com.feature.authentication.ui.CustomTextField
+import com.core.theme.components.AppTextField
 import com.feature.authentication.ui.Dimensions.ButtonHeight
 import com.feature.authentication.ui.Dimensions.ExtraLargeSpacing
 import com.feature.authentication.ui.Dimensions.LargeSpacing
 import com.feature.authentication.ui.Dimensions.MediumSpacing
 import com.feature.authentication.ui.R
-import com.feature.authentication.ui.login.ErrorApiResponse
-import com.feature.authentication.ui.login.ErrorFields
 
 @Composable
-fun RegisterScreen(
-    modifier: Modifier,
-    navController: NavController,
-    uiState: RegisterState,
-    event: (RegisterEvent) -> Unit
+internal fun RegisterScreen(
+    viewModel: RegisterViewModel,
+    onAuthSuccess: () -> Unit
+) {
+    val uiState = viewModel.uiState.collectAsState()
+    when (val state = uiState.value) {
+        RegisterUiState.Authenticated -> {
+            onAuthSuccess()
+        }
+
+        is RegisterUiState.Default -> {
+            Register(
+                uiState = state,
+                onEvent = { event ->
+                    viewModel.onEvent(event)
+                }
+            )
+        }
+    }
+}
+
+@Composable
+fun Register(
+    uiState: RegisterUiState.Default,
+    onEvent: (RegisterEvent) -> Unit
 ){
     val context = LocalContext.current
-    Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Column {
             Column(
-                modifier = modifier
+                modifier = Modifier
                     .fillMaxSize()
                     .verticalScroll(rememberScrollState())
                     .background(
@@ -66,54 +85,52 @@ fun RegisterScreen(
                 verticalArrangement = Arrangement.spacedBy(LargeSpacing)
             ) {
 
-                CustomTextField(
-                    context = context,
-                    value = uiState.username,
-                    onValueChange = { event(RegisterEvent.UpdateUsername(it)) },
-                    hint = context.getString(R.string.hint_username),
-                    isError = uiState.errorFields == ErrorFields.USERNAME,
-                    errorFields = if (uiState.errorFields == ErrorFields.USERNAME) ErrorFields.USERNAME else ErrorFields.NONE
+                AppTextField(
+                    value = uiState.fullName,
+                    label = R.string.full_name,
+                    hint = "John Doe",
+                    error = uiState.fullNameError,
+                    leadingIcon = Icons.Filled.Person,
+                    onValueChanged = { onEvent(RegisterEvent.FullNameChanged(it)) },
+                    imeAction = ImeAction.Next,
                 )
 
-                CustomTextField(
-                    context = context,
+                AppTextField(
                     value = uiState.email,
-                    onValueChange = { event(RegisterEvent.UpdateEmail(it)) },
-                    hint = context.getString(R.string.hint_email),
-                    keyboardType = KeyboardType.Email,
-                    isError = uiState.errorFields == ErrorFields.EMAIL,
-                    errorFields = if (uiState.errorFields == ErrorFields.EMAIL) ErrorFields.EMAIL else ErrorFields.NONE
+                    label = R.string.email,
+                    hint = "yourname@domain.com",
+                    error = uiState.emailError,
+                    leadingIcon = Icons.Filled.Email,
+                    onValueChanged = { onEvent(RegisterEvent.EmailChanged(it)) },
+                    imeAction = ImeAction.Next,
                 )
 
-                CustomTextField(
-                    context = context,
+                AppTextField(
                     value = uiState.password,
-                    onValueChange = { event(RegisterEvent.UpdatePassword(it)) },
-                    hint = context.getString(R.string.hint_password),
-                    keyboardType = KeyboardType.Password,
-                    isPasswordTextField = true,
-                    isError = uiState.errorFields == ErrorFields.PASSWORD,
-                    errorFields = if (uiState.errorFields == ErrorFields.PASSWORD) ErrorFields.PASSWORD else ErrorFields.NONE
+                    label = R.string.password,
+                    hint = "your password",
+                    error = uiState.passwordError,
+                    leadingIcon = Icons.Filled.Lock,
+                    isPasswordField = true,
+                    onValueChanged = { onEvent(RegisterEvent.PasswordChanged(it)) },
+                    imeAction = ImeAction.Next,
                 )
 
-                CustomTextField(
-                    context = context,
-                    value = uiState.verifyPassword,
-                    onValueChange = { event(RegisterEvent.UpdateVerifyPassword(it)) },
-                    hint = context.getString(R.string.hint_password),
-                    keyboardType = KeyboardType.Password,
-                    isPasswordTextField = true,
-                    isError = uiState.errorFields == ErrorFields.VERIFY_PASSWORD,
-                    errorFields = if (uiState.errorFields == ErrorFields.VERIFY_PASSWORD) ErrorFields.VERIFY_PASSWORD else ErrorFields.NONE
+                AppTextField(
+                    value = uiState.passwordConfirm,
+                    label = R.string.confirm_password,
+                    hint = "same password again",
+                    error = uiState.passwordConfirmError,
+                    leadingIcon = Icons.Filled.Lock,
+                    isPasswordField = true,
+                    onValueChanged = { onEvent(RegisterEvent.ConfirmPasswordChanged(it)) },
                 )
 
                 Button(
                     onClick = {
-                        event(RegisterEvent.Register(
-                            uiState.username, uiState.email, uiState.password, uiState.verifyPassword
-                        ))
+                        onEvent(RegisterEvent.Register)
                     },
-                    modifier = modifier
+                    modifier = Modifier
                         .fillMaxWidth()
                         .height(ButtonHeight),
                     elevation = ButtonDefaults.buttonElevation(
@@ -131,34 +148,4 @@ fun RegisterScreen(
             CircularProgressIndicator()
         }
     }
-
-    LaunchedEffect(
-        key1 = uiState.errorApiResponse,
-        block = {
-            when(uiState.errorApiResponse){
-                ErrorApiResponse.NONE -> {
-
-                }
-                ErrorApiResponse.BAD_CREDENTIALS -> {
-                    Toast.makeText(context, "BAD_CREDENTIALS", Toast.LENGTH_SHORT).show()
-                }
-                ErrorApiResponse.SERVER -> {
-                    Toast.makeText(context, "SERVER", Toast.LENGTH_SHORT).show()
-                }
-                ErrorApiResponse.NETWORK -> {
-                    Toast.makeText(context, "NETWORK", Toast.LENGTH_SHORT).show()
-                }
-            }
-        },
-    )
-
-    LaunchedEffect(
-        key1 = uiState.isSuccessRegister,
-        block = {
-            if(uiState.isSuccessRegister){
-                Toast.makeText(context, "SUCCESS", Toast.LENGTH_SHORT).show()
-                navController.navigate(HomeFeature.nestedHomeRoute)
-            }
-        }
-    )
 }

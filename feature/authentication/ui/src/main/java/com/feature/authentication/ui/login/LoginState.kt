@@ -1,25 +1,22 @@
 package com.feature.authentication.ui.login
 
-data class LoginState(
-    val email: String = "",
-    val password: String = "",
-    val isLoading: Boolean = false,
-    val isLoginSuccess: Boolean = false,
-    val errorFields: ErrorFields = ErrorFields.NONE,
-    val errorApiResponse: ErrorApiResponse = ErrorApiResponse.NONE
-)
+import androidx.annotation.StringRes
 
-enum class ErrorFields {
-    NONE,
-    EMAIL,
-    USERNAME,
-    PASSWORD,
-    VERIFY_PASSWORD
-}
+sealed class LoginUiState {
 
-enum class ErrorApiResponse {
-    NONE,
-    BAD_CREDENTIALS,
-    SERVER,
-    NETWORK
+    data object Authenticated : LoginUiState()
+
+    data class AuthenticationError(val message: String) : LoginUiState()
+
+    data class NotAuthenticated(
+        val email: String = "",
+        @StringRes val emailError: Int? = null,
+
+        val password: String = "",
+        @StringRes val passwordError: Int? = null,
+
+        val isLoading: Boolean = false,
+
+        @StringRes val loginError: Int? = null,
+    ) : LoginUiState()
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="back_button">Back button</string>
+
+    <string name="topbar_profile">profile</string>
+    <string name="topbar_Share">Share</string>
+    <string name="topbar_Search">Search</string>
+    <string name="topbar_Save">Save</string>
+    <string name="topbar_Settings">Settings</string>
+    <string name="topbar_Favorites">Favorites</string>
+
+    <string name="label_error_username">Please fill in a correct username!</string>
+    <string name="label_error_email">Please fill in a correct email address!</string>
+    <string name="label_error_password">Password too short!</string>
+    <string name="label_error_verify_password">Passwords not the same!</string>
+</resources>
