@@ -1,5 +1,7 @@
 package com.feature.authentication.domain.use_cases
 
+import com.core.common.enums.ResourceError
+import com.core.common.model.Resource
 import com.core.common.model.auth.User
 import com.feature.authentication.data.repository.AuthRepository
 import kotlinx.coroutines.flow.Flow
@@ -14,54 +16,25 @@ class RegisterUseCase @Inject constructor(
         email: String,
         password: String,
         verifyPassword: String
-    ): Flow<AuthenticationResult> = flow {
+    ): Flow<Resource<User>> = flow {
         val result = authRepository.register(username, email, password, verifyPassword)
-        if (username.isBlank() || username.length < 2) {
+        result.onSuccess {
             emit(
-                AuthenticationResult.ErrorField(
-                    ErrorFields.USERNAME
-                )
-            )
-        } else if (email.isBlank() || emailRegex(email)) {
-            emit(
-                AuthenticationResult.ErrorField(
-                    ErrorFields.EMAIL
-                )
-            )
-        } else if (password.isBlank() || (password.length < 4)) {
-            emit(
-                AuthenticationResult.ErrorField(
-                    ErrorFields.PASSWORD
-                )
-            )
-        } else if (password != verifyPassword) {
-            emit(
-                AuthenticationResult.ErrorField(
-                    ErrorFields.VERIFY_PASSWORD
-                )
-            )
-        } else {
-            result.onSuccess {
-                emit(
-                    AuthenticationResult.Success(
-                        User(
-                            it.userID,
-                            it.username,
-                            it.email,
-                            it.name
-                        )
+                Resource.Success(
+                    User(
+                        it.userID,
+                        it.username,
+                        it.email,
+                        it.name
                     )
                 )
-            }
+            )
+        }
 
-            result.onFailure {
-                emit(AuthenticationResult.Error(it))
-            }
+        result.onFailure {
+            //TODO FINISH EXCEPTION HANDLING LATER
+            emit(Resource.Error(ResourceError.UNKNOWN))
         }
     }
-}
 
-fun emailRegex(email: String): Boolean {
-    val regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}\$"
-    return !email.matches(regex.toRegex())
 }

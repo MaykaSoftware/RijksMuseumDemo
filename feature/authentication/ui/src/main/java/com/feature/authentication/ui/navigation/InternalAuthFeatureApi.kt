@@ -1,12 +1,11 @@
 package com.feature.authentication.ui.navigation
 
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.core.common.constants.AuthenticationFeature
+import com.core.common.constants.HomeFeature
 import com.core.common.constants.TopBarConstants
 import com.core.feature_api.FeatureApi
 import com.feature.authentication.ui.login.LoginScreen
@@ -27,15 +26,24 @@ internal object InternalAuthFeatureApi : FeatureApi {
         ) {
             composable(AuthenticationFeature.loginScreenRoute) {
                 val viewModel: LoginViewModel = hiltViewModel()
-                val state by viewModel.uiState.collectAsState()
                 LoginScreen(
-                    modifier, navController, state, viewModel::onEvent
+                    viewModel = viewModel,
+                    onAuthSuccess = {
+                        navController.navigate(HomeFeature.nestedHomeRoute)
+                    },
+                    onNavigateToSignup = {
+                        navController.navigate(AuthenticationFeature.registerScreenRoute)
+                    },
                 )
             }
             composable(AuthenticationFeature.registerScreenRoute) {
                 val viewModel: RegisterViewModel = hiltViewModel()
-                val state by viewModel.uiState.collectAsState()
-                RegisterScreen(modifier, navController, state, viewModel::onEvent)
+                RegisterScreen(
+                    viewModel = viewModel,
+                    onAuthSuccess = {
+                        navController.navigate(HomeFeature.nestedHomeRoute)
+                    }
+                )
             }
         }
     }

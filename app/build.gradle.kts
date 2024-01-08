@@ -32,14 +32,11 @@ android {
 }
 
 dependencies {
+    implementation(projects.core.theme)
     implementation(projects.core.common)
     implementation(projects.core.featureApi)
     implementation(projects.feature.bottombar)
     implementation(projects.feature.topbar)
-
-    val composeBom = platform(libs.androidx.compose.bom)
-    implementation(composeBom)
-    androidTestImplementation(composeBom)
 
     implementation(projects.feature.onboarding.data)
     implementation(projects.feature.onboarding.domain)
@@ -60,6 +57,10 @@ dependencies {
     implementation(projects.feature.settings.data)
     implementation(projects.feature.settings.domain)
     implementation(projects.feature.settings.ui)
+
+    val composeBom = platform(libs.androidx.compose.bom)
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
 
     testImplementation(libs.androidx.junit)
     testImplementation(libs.androidx.test.core)

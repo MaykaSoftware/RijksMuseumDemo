@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="label_error_username">Please fill in a correct username!</string>
-    <string name="label_error_email">Please fill in a correct email address!</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="confirm_password">Confirm Password</string>
+
+    <string name="error_name_empty">Name cannot be empty</string>
+    <string name="error_name_invalid">Invalid Name</string>
+    <string name="error_email_empty">Email cannot be empty</string>
+    <string name="error_email_invalid">Email Invalid</string>
     <string name="label_error_password">Password too short!</string>
     <string name="label_error_verify_password">Passwords not the same!</string>
+
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="hint_username">Username</string>
+
     <string name="btn_label_login">Login</string>
     <string name="btn_label_signout">Log out</string>
     <string name="btn_label_signup">Signup</string>
+
     <string name="label_no_account">Don\'t have an account?</string>
     <string name="label_signup">Signup</string>
+
+    <string name="unknown_error">Unknown error, please try again later!</string>
+    <string name="invalid_email_password">Invalid email or password</string>
+    <string name="service_unavailable">Service unavailable, please try again!</string>
+    <string name="password_match_error">Password did not match</string>
 </resources>

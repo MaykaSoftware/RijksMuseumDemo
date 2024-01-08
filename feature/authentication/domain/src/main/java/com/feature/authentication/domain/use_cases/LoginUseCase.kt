@@ -1,5 +1,7 @@
 package com.feature.authentication.domain.use_cases
 
+import com.core.common.enums.ResourceError
+import com.core.common.model.Resource
 import com.core.common.model.auth.User
 import com.feature.authentication.data.repository.AuthRepository
 import kotlinx.coroutines.flow.Flow
@@ -12,36 +14,24 @@ class LoginUseCase @Inject constructor(
     suspend operator fun invoke(
         email: String,
         password: String
-    ): Flow<AuthenticationResult> = flow {
+    ): Flow<Resource<User>> = flow {
         val result = authRepository.login(email, password)
-        if (email.isBlank() || emailRegex(email)) {
+        result.onSuccess {
             emit(
-                AuthenticationResult.ErrorField(
-                    ErrorFields.EMAIL
-                ))
-        } else if (password.isBlank() || password.length < 4) {
-            emit(
-                AuthenticationResult.ErrorField(
-                    ErrorFields.PASSWORD
-                )
-            )
-        } else {
-            result.onSuccess {
-                emit(
-                    AuthenticationResult.Success(
-                        User(
-                            it.userID,
-                            it.username,
-                            it.email,
-                            it.name
-                        )
+                Resource.Success(
+                    User(
+                        it.userID,
+                        it.username,
+                        it.email,
+                        it.name
                     )
                 )
-            }
+            )
+        }
 
-            result.onFailure {
-                emit(AuthenticationResult.Error(it))
-            }
+        result.onFailure {
+            //TODO FINISH EXCEPTION HANDLING LATER
+            emit(Resource.Error(ResourceError.UNKNOWN))
         }
     }
 }

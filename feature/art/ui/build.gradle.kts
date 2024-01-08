@@ -16,6 +16,7 @@ android {
 dependencies {
     implementation(projects.core.featureApi)
     implementation(projects.core.common)
+    implementation(projects.core.theme)
     implementation(projects.feature.art.domain)
 
     val composeBom = platform(libs.androidx.compose.bom)

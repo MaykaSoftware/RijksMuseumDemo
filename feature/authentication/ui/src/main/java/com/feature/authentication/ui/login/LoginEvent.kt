@@ -1,10 +1,9 @@
 package com.feature.authentication.ui.login
 
-sealed class LoginEvent {
-    data class Login(
-        val username: String,
-        val password: String
-    ) : LoginEvent()
-    data class UpdateEmail(val email: String): LoginEvent()
-    data class UpdatePassword(val password: String): LoginEvent()
+sealed class LoginUiEvent {
+    data class EmailChanged(val email: String) : LoginUiEvent()
+    data class PasswordChanged(val password: String) : LoginUiEvent()
+    data object Login : LoginUiEvent()
+    data object ForgetPassword : LoginUiEvent()
+    data object Signup : LoginUiEvent()
 }
