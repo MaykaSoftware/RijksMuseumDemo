@@ -14,6 +14,7 @@ android {
 
 dependencies {
     implementation(projects.core.common)
+    implementation(projects.core.theme)
 
     testImplementation(libs.androidx.junit)
     testImplementation(libs.androidx.test.core)

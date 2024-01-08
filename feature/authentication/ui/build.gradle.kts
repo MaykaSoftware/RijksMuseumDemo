@@ -16,6 +16,7 @@ android {
 dependencies {
     implementation(projects.core.featureApi)
     implementation(projects.core.common)
+    implementation(projects.core.theme)
     implementation(projects.core.network)
     implementation(projects.feature.authentication.domain)
 
