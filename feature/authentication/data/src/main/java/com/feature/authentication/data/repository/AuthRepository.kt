@@ -10,7 +10,7 @@ interface AuthRepository {
         verifyPassword: String
     ): Result<com.core.common.dto.auth.LoginDTO>
 
-    suspend fun login(email: String, password: String):  Result<com.core.common.dto.auth.LoginDTO>
+    suspend fun login(email: String, password: String): Result<com.core.common.dto.auth.LoginDTO>
     suspend fun saveToken(token: String)
     fun readToken(): Flow<String>
 }

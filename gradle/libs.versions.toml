@@ -66,11 +66,11 @@ activity-compose = { group = "androidx.activity", name = "activity-compose", ver
 androidx-compose-rules = { group = "androidx.compose", name = "rules", version.ref = "testRules" }
 
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-compose-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4"}
+androidx-compose-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-compose-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 
-androidx-compose-ui = { group = "androidx.compose.ui", name = "ui"}
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-compose-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-compose-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 
@@ -103,9 +103,9 @@ splashscreen = { group = "androidx.core", name = "core-splashscreen", version.re
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "androidGradlePlugin"}
-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin"}
-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-plugin"}
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-plugin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinxSerializationPlugin" }
-android-library = { id = "com.android.library", version.ref = "androidGradlePlugin"}
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }

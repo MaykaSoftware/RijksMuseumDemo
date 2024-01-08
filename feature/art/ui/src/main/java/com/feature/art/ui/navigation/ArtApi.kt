@@ -16,7 +16,12 @@ class ArtApiImpl : ArtApi {
         modifier: Modifier,
         onTitleChanged: (TopBarConstants, String) -> Unit
     ) {
-        InternalArtFeatureApi.registerGraph(navController, navGraphBuilder, modifier, onTitleChanged)
+        InternalArtFeatureApi.registerGraph(
+            navController,
+            navGraphBuilder,
+            modifier,
+            onTitleChanged
+        )
     }
 
 }

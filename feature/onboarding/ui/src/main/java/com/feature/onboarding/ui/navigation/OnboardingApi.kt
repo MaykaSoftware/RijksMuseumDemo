@@ -16,6 +16,11 @@ class OnboardingApiImpl : OnboardingApi {
         modifier: Modifier,
         onTitleChanged: (TopBarConstants, String) -> Unit
     ) {
-        InternalOnboardingFeatureApi.registerGraph(navController, navGraphBuilder, modifier, onTitleChanged)
+        InternalOnboardingFeatureApi.registerGraph(
+            navController,
+            navGraphBuilder,
+            modifier,
+            onTitleChanged
+        )
     }
 }

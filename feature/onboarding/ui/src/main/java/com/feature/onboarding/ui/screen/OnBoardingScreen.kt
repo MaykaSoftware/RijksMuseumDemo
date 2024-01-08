@@ -43,7 +43,7 @@ fun OnBoardingScreen(
     modifier: Modifier,
     navController: NavController,
     event: (OnBoardingEvent) -> Unit
-){
+) {
     Column(
         modifier = modifier.fillMaxSize()
     ) {
@@ -53,7 +53,7 @@ fun OnBoardingScreen(
 
         val buttonState = remember {
             derivedStateOf {
-                when(pagerState.currentPage){
+                when (pagerState.currentPage) {
                     pages.size - 1 -> "Get Started"
                     else -> ""
                 }
@@ -79,7 +79,7 @@ fun OnBoardingScreen(
                 selectedPage = pagerState.currentPage
             )
 
-            if(pagerState.currentPage == pages.size-1){
+            if (pagerState.currentPage == pages.size - 1) {
                 ArtOnboardingButton(text = buttonState.value, onClick = {
                     event(OnBoardingEvent.SaveAppEntry)
                     navController.navigate(AuthenticationFeature.nestedAuthenticationRoute)
@@ -103,7 +103,9 @@ fun PagerIndicator(
     ) {
         repeat(pageSize) { page ->
             Box(
-                modifier = Modifier.size(indicatorSize).clip(CircleShape)
+                modifier = Modifier
+                    .size(indicatorSize)
+                    .clip(CircleShape)
                     .background(color = if (page == selectedPage) selectedColor else unselectedColor)
             )
         }

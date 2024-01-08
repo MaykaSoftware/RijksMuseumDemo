@@ -1,6 +1,7 @@
 package com.feature.authentication.ui.register
 
 import androidx.annotation.StringRes
+
 sealed class RegisterUiState {
 
     data object Authenticated : RegisterUiState()

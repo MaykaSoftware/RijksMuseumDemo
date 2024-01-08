@@ -7,7 +7,7 @@ class SaveAppEntryUseCase @Inject constructor(
     private val onBoardingRepository: OnBoardingRepository
 ) {
 
-    suspend operator fun invoke(){
+    suspend operator fun invoke() {
         onBoardingRepository.saveAppEntry()
     }
 }

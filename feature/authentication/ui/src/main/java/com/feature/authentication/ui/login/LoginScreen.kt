@@ -130,7 +130,7 @@ fun Login(
                     Text(text = context.getString(R.string.btn_label_login))
                 }
 
-                GoToSignup( context) {
+                GoToSignup(context) {
                     onEvent(LoginUiEvent.Signup)
                 }
             }

@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val startDestination = viewModel.startDestination.startDestination
-                    if(startDestination.isNotEmpty()) {
+                    if (startDestination.isNotEmpty()) {
                         RijksMuseumDemoApp(navigationProvider, startDestination)
                     }
                 }

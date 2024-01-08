@@ -31,9 +31,11 @@ class MainViewModel @Inject constructor(
                 StartNavigation.ONBOARDING -> {
                     State(OnboardingFeature.onboardingScreenRoute)
                 }
+
                 StartNavigation.AUTHENTICATION -> {
                     State(AuthenticationFeature.nestedAuthenticationRoute)
                 }
+
                 StartNavigation.MAIN -> {
                     State(HomeFeature.nestedHomeRoute)
                 }

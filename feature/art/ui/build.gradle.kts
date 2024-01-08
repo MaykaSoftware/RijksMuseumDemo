@@ -43,7 +43,7 @@ dependencies {
     kaptAndroidTest(libs.hilt.android.compiler)
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.lifecycle.runtime.ktx )
+    implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.graphics)

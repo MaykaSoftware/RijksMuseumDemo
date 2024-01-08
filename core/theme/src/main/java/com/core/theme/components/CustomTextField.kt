@@ -93,7 +93,8 @@ fun AppTextField(
                 }
             } else {
                 null
-            },visualTransformation = if (isPasswordField) {
+            },
+            visualTransformation = if (isPasswordField) {
                 if (isPasswordVisible) {
                     VisualTransformation.None
                 } else {

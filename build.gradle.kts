@@ -16,7 +16,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
 }
 
-fun BaseExtension.defaultConfig(){
+fun BaseExtension.defaultConfig() {
     compileSdkVersion(34)
 
     defaultConfig {
@@ -45,19 +45,21 @@ fun BaseExtension.defaultConfig(){
     }
 }
 
-fun PluginContainer.applyDefaultConfig(project: Project){
+fun PluginContainer.applyDefaultConfig(project: Project) {
     whenPluginAdded {
-        when(this) {
+        when (this) {
             is AppPlugin -> {
                 project.extensions.getByType<AppExtension>().apply {
                     defaultConfig()
                 }
             }
+
             is LibraryPlugin -> {
                 project.extensions.getByType<LibraryExtension>().apply {
                     defaultConfig()
                 }
             }
+
             is JavaPlugin -> {
                 project.extensions.getByType<JavaPluginExtension>().apply {
                     sourceCompatibility = JavaVersion.VERSION_17

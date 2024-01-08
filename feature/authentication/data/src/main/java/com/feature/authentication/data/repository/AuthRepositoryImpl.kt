@@ -19,8 +19,8 @@ class AuthRepositoryImpl @Inject constructor(
         email: String,
         password: String,
         verifyPassword: String
-    ): Result<LoginDTO>  {
-        val result =  authRemoteDataSource.register(
+    ): Result<LoginDTO> {
+        val result = authRemoteDataSource.register(
             RegisterRequest(
                 username,
                 email,
@@ -31,18 +31,20 @@ class AuthRepositoryImpl @Inject constructor(
 
         result.onSuccess {
             authCacheDataSource.saveToken(it.token)
-            val user = User( it.userID,
+            val user = User(
+                it.userID,
                 it.username,
                 it.email,
-                it.name)
+                it.name
+            )
             authCacheDataSource.upsert(user.toUserEntity())
 
         }
         return result
     }
 
-    override suspend fun login(email: String, password: String): Result<LoginDTO>  {
-        val result =  authRemoteDataSource.login(
+    override suspend fun login(email: String, password: String): Result<LoginDTO> {
+        val result = authRemoteDataSource.login(
             LoginRequest(
                 email,
                 password
@@ -51,17 +53,21 @@ class AuthRepositoryImpl @Inject constructor(
 
         result.onSuccess {
             authCacheDataSource.saveToken(it.token)
-            val user = User( it.userID,
+            val user = User(
+                it.userID,
                 it.username,
                 it.email,
-                it.name)
+                it.name
+            )
             authCacheDataSource.upsert(user.toUserEntity())
         }
 
         return result
     }
+
     override suspend fun saveToken(token: String) {
         authCacheDataSource.saveToken(token)
     }
+
     override fun readToken(): Flow<String> = authCacheDataSource.readToken()
 }

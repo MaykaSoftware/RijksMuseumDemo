@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class OnBoardingRepositoryImpl @Inject constructor(
     private val dataStore: DataStore<Preferences>
-): OnBoardingRepository {
+) : OnBoardingRepository {
     override suspend fun saveAppEntry() {
         dataStore.edit { settings ->
             settings[PreferencesKeys.APP_ENTRY] = true
@@ -19,7 +19,7 @@ class OnBoardingRepositoryImpl @Inject constructor(
 
     override fun readAppEntry(): Flow<Boolean> {
         return dataStore.data.map { preferences ->
-            preferences[PreferencesKeys.APP_ENTRY]?:false
+            preferences[PreferencesKeys.APP_ENTRY] ?: false
         }
     }
 }

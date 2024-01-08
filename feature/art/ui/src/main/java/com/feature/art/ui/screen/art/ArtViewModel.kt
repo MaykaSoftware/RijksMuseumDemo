@@ -9,8 +9,10 @@ import androidx.paging.map
 import com.core.common.model.art.ArtObject
 import com.feature.art.domain.use_cases.ArtUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -24,16 +26,22 @@ class ArtViewModel @Inject constructor(
         insertSeparators(it)
     }
 
-    private fun mapToUiModels(pagingData: PagingData<ArtObject>): PagingData<ListArtObjectUiState.ArtObjectItem> =
-        pagingData.map { artObject ->
-            ListArtObjectUiState.ArtObjectItem(artObject)
+    private suspend fun mapToUiModels(pagingData: PagingData<ArtObject>): PagingData<ListArtObjectUiState.ArtObjectItem> =
+        withContext(Dispatchers.IO) {
+            pagingData.map { artObject ->
+                ListArtObjectUiState.ArtObjectItem(artObject)
+            }
         }
 
-    private fun insertSeparators(artObjectData: PagingData<ListArtObjectUiState.ArtObjectItem>): PagingData<ListArtObjectUiState> =
-        artObjectData.insertSeparators { before: ListArtObjectUiState.ArtObjectItem?,
-                                         after: ListArtObjectUiState.ArtObjectItem? ->
-            createHeaderSeparatorsIfNeedTo(after, before)
+
+    private suspend fun insertSeparators(artObjectData: PagingData<ListArtObjectUiState.ArtObjectItem>): PagingData<ListArtObjectUiState> =
+        withContext(Dispatchers.IO) {
+            artObjectData.insertSeparators { before: ListArtObjectUiState.ArtObjectItem?,
+                                             after: ListArtObjectUiState.ArtObjectItem? ->
+                createHeaderSeparatorsIfNeedTo(after, before)
+            }
         }
+
 
     private fun createHeaderSeparatorsIfNeedTo(
         after: ListArtObjectUiState.ArtObjectItem?,

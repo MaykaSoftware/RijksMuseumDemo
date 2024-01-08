@@ -18,9 +18,9 @@ class ReadAppEntryUseCase @Inject constructor(
 
         return onBoardingRepository.readAppEntry().flatMapLatest { hasOnBoarded ->
             authRepository.readToken().map { token ->
-                if(hasOnBoarded && token.isNotEmpty()){
+                if (hasOnBoarded && token.isNotEmpty()) {
                     StartNavigation.MAIN
-                } else if(hasOnBoarded && token.isEmpty()) {
+                } else if (hasOnBoarded && token.isEmpty()) {
                     StartNavigation.AUTHENTICATION
                 } else {
                     StartNavigation.ONBOARDING

@@ -18,6 +18,7 @@ class AuthCacheDataSource @Inject constructor(
     suspend fun upsert(user: UserEntity) {
         userDao.upsert(user)
     }
+
     suspend fun saveToken(token: String) {
         dataStore.edit { settings ->
             settings[PreferencesKeys.AUTH_TOKEN] = token

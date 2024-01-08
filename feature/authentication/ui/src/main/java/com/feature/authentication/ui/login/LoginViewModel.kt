@@ -18,12 +18,12 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase,
     private val validatorFactory: ValidatorFactory,
-): ViewModel(){
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow<LoginUiState>(LoginUiState.NotAuthenticated())
     val uiState: StateFlow<LoginUiState> = _uiState
-    fun onEvent(uiEvent: LoginUiEvent){
-        when(uiEvent){
+    fun onEvent(uiEvent: LoginUiEvent) {
+        when (uiEvent) {
             is LoginUiEvent.EmailChanged -> updateState { it.copy(email = uiEvent.email) }
             is LoginUiEvent.PasswordChanged -> updateState { it.copy(password = uiEvent.password) }
             LoginUiEvent.Login -> {
@@ -76,7 +76,7 @@ class LoginViewModel @Inject constructor(
         val ui = (_uiState.value as? LoginUiState.NotAuthenticated) ?: return@launch
         _uiState.value = LoginUiState.NotAuthenticated(isLoading = true)
         loginUseCase.invoke(ui.email, ui.password).collect {
-            when(it){
+            when (it) {
                 is Resource.Error -> LoginUiState.NotAuthenticated(loginError = getError(it))
                 is Resource.Success -> LoginUiState.Authenticated
             }

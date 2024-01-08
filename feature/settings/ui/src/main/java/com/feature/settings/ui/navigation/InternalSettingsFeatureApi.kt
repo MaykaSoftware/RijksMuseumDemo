@@ -29,7 +29,10 @@ internal object InternalSettingsFeatureApi : FeatureApi {
         ) {
             composable(SettingsFeature.settingsScreenRoute) {
                 val context = LocalContext.current
-                onTitleChanged(TopBarConstants.SETTINGS, context.getString(R.string.title_topbar_setting))
+                onTitleChanged(
+                    TopBarConstants.SETTINGS,
+                    context.getString(R.string.title_topbar_setting)
+                )
                 val viewModel: SettingsViewModel = hiltViewModel()
                 val state by viewModel.state.collectAsState()
                 SettingsScreen(state)

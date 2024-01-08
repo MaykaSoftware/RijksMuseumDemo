@@ -17,6 +17,11 @@ class SettingsApiImpl : SettingsApi {
         modifier: Modifier,
         onTitleChanged: (TopBarConstants, String) -> Unit
     ) {
-        InternalSettingsFeatureApi.registerGraph(navController, navGraphBuilder, modifier, onTitleChanged)
+        InternalSettingsFeatureApi.registerGraph(
+            navController,
+            navGraphBuilder,
+            modifier,
+            onTitleChanged
+        )
     }
 }

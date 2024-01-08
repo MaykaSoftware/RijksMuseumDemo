@@ -17,6 +17,11 @@ class HomeApiImpl : HomeApi {
         modifier: Modifier,
         onTitleChanged: (TopBarConstants, String) -> Unit
     ) {
-        InternalHomeFeatureApi.registerGraph(navController, navGraphBuilder, modifier, onTitleChanged)
+        InternalHomeFeatureApi.registerGraph(
+            navController,
+            navGraphBuilder,
+            modifier,
+            onTitleChanged
+        )
     }
 }

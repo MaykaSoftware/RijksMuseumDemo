@@ -28,7 +28,7 @@ interface AuthService {
 @Singleton
 class DummyAuthService @Inject constructor() {
     fun register(register: RegisterRequest): Result<com.core.common.dto.auth.LoginDTO> {
-        return if(register.password != "123456") {
+        return if (register.password != "123456") {
             Result.success(
                 com.core.common.dto.auth.LoginDTO(
                     1,
@@ -44,7 +44,7 @@ class DummyAuthService @Inject constructor() {
     }
 
     fun login(login: LoginRequest): Result<com.core.common.dto.auth.LoginDTO> {
-        return if(login.username == "abc@example.com" && login.password == "abcdef"){
+        return if (login.username == "abc@example.com" && login.password == "abcdef") {
             Result.success(
                 com.core.common.dto.auth.LoginDTO(
                     1,

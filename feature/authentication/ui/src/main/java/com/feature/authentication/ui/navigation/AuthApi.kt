@@ -16,7 +16,12 @@ class AuthApiImpl : AuthApi {
         modifier: Modifier,
         onTitleChanged: (TopBarConstants, String) -> Unit
     ) {
-        InternalAuthFeatureApi.registerGraph(navController, navGraphBuilder, modifier, onTitleChanged)
+        InternalAuthFeatureApi.registerGraph(
+            navController,
+            navGraphBuilder,
+            modifier,
+            onTitleChanged
+        )
     }
 
 }

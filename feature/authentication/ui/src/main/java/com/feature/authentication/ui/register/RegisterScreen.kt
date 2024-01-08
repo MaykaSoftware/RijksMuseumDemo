@@ -60,7 +60,7 @@ internal fun RegisterScreen(
 fun Register(
     uiState: RegisterUiState.Default,
     onEvent: (RegisterEvent) -> Unit
-){
+) {
     val context = LocalContext.current
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Column {

@@ -44,7 +44,7 @@ fun RijksMuseumDemoApp(
             )
         },
         topBar = {
-            if(dynamicTitle.isNotEmpty()) {
+            if (dynamicTitle.isNotEmpty()) {
                 ArtAppBar(
                     title = dynamicTitle,
                     scrollBehavior,
@@ -55,9 +55,11 @@ fun RijksMuseumDemoApp(
             }
         }
     ) { innerPaddingModifier ->
-        Box(modifier = Modifier
-            .padding(innerPaddingModifier)
-            .fillMaxSize()) {
+        Box(
+            modifier = Modifier
+                .padding(innerPaddingModifier)
+                .fillMaxSize()
+        ) {
             AppNavGraph(
                 navController = navController,
                 navigationProvider = navigationProvider,

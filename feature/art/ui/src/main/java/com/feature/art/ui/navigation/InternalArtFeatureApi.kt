@@ -30,14 +30,17 @@ internal object InternalArtFeatureApi : FeatureApi {
         ) {
             composable(ArtFeature.artScreenRoute) {
                 val context = LocalContext.current
-                onTitleChanged(TopBarConstants.ART,context.getString(R.string.title_topbar_art))
+                onTitleChanged(TopBarConstants.ART, context.getString(R.string.title_topbar_art))
                 val viewModel: ArtViewModel = hiltViewModel()
                 val artObjects = viewModel.artObjectFlow.collectAsLazyPagingItems()
                 ArtScreen(artObjects, navController, modifier)
             }
             composable(ArtFeature.artDetailScreenRoute) {
                 val context = LocalContext.current
-                onTitleChanged(TopBarConstants.ART_DETAIL,context.getString(R.string.title_topbar_art_detail))
+                onTitleChanged(
+                    TopBarConstants.ART_DETAIL,
+                    context.getString(R.string.title_topbar_art_detail)
+                )
                 val viewModel: ArtDetailViewModel = hiltViewModel()
                 val state by viewModel.state.collectAsState()
                 ArtDetailsScreen(state, navController, modifier)

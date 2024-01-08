@@ -34,7 +34,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
 import com.core.common.model.art.ArtObject
@@ -95,7 +94,7 @@ fun ArtObjectItem(
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         text = artObject.longTitle,
-                        fontStyle = FontStyle.Italic,
+                        style = MaterialTheme.typography.bodyMedium,
                         modifier = Modifier.fillMaxWidth()
                     )
                 }
